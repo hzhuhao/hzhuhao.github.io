@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://notes.huhao.me/"/>
-  <updated>2017-03-13T14:44:12.989Z</updated>
+  <updated>2017-03-13T16:23:30.225Z</updated>
   <id>http://notes.huhao.me/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我的第一篇博客</title>
+    <link href="http://notes.huhao.me/2017/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://notes.huhao.me/2017/我的第一篇博客/</id>
+    <published>2017-03-13T16:21:44.000Z</published>
+    <updated>2017-03-13T16:23:30.225Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是我的问斩gas</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这是我的问斩gas&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="PHP" scheme="http://notes.huhao.me/categories/PHP/"/>
+    
+    
+      <category term="web" scheme="http://notes.huhao.me/tags/web/"/>
+    
+  </entry>
   
   <entry>
     <title>测试分类页</title>
