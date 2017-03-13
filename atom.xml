@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>HuHao&#39;s Notes</title>
+  <subtitle>Quick notes</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://notes.huhao.me/"/>
+  <updated>2017-03-13T09:28:58.752Z</updated>
+  <id>http://notes.huhao.me/</id>
+  
+  <author>
+    <name>HuHao</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2017年3月13日测试</title>
+    <link href="http://notes.huhao.me/2017/2017%E5%B9%B43%E6%9C%8813%E6%97%A5%E6%B5%8B%E8%AF%95/"/>
+    <id>http://notes.huhao.me/2017/2017年3月13日测试/</id>
+    <published>2017-03-13T09:28:30.000Z</published>
+    <updated>2017-03-13T09:28:58.752Z</updated>
+    
+    <content type="html"><![CDATA[<p>测试内容么</p>
+<p>测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;测试内容么&lt;/p&gt;
+&lt;p&gt;测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么测试内容么&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>测试一下</title>
+    <link href="http://notes.huhao.me/2017/%E6%B5%8B%E8%AF%95%E4%B8%80%E4%B8%8B/"/>
+    <id>http://notes.huhao.me/2017/测试一下/</id>
+    <published>2017-03-12T15:44:10.956Z</published>
+    <updated>2017-03-12T15:44:41.185Z</updated>
+    
+    <content type="html"><![CDATA[<p>测试一下啊</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;测试一下啊&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>睡觉吧</title>
+    <link href="http://notes.huhao.me/2017/%E7%9D%A1%E8%A7%89%E5%90%A7/"/>
+    <id>http://notes.huhao.me/2017/睡觉吧/</id>
+    <published>2017-03-12T15:31:17.323Z</published>
+    <updated>2017-03-12T15:31:50.444Z</updated>
+    
+    <content type="html"><![CDATA[<p>好困啊 睡觉吧 </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;好困啊 睡觉吧 &lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>2017年三月12日 晚安</title>
+    <link href="http://notes.huhao.me/2017/%E4%BD%A0%E5%A5%BD%E4%B8%96%E7%95%8C-2017%E5%B9%B43%E6%9C%8812%E6%97%A5%E6%99%9A%E5%AE%89/"/>
+    <id>http://notes.huhao.me/2017/你好世界-2017年3月12日晚安/</id>
+    <published>2017-03-12T15:24:27.668Z</published>
+    <updated>2017-03-12T15:25:26.508Z</updated>
+    
+    <content type="html"><![CDATA[<p>晚安啊按时 这个是我的博客啊啊！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;晚安啊按时 这个是我的博客啊啊！&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
