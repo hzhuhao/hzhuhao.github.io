@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://notes.huhao.me/"/>
-  <updated>2017-03-13T16:56:39.398Z</updated>
+  <updated>2017-03-14T13:33:01.568Z</updated>
   <id>http://notes.huhao.me/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hello word!</title>
+    <link href="http://notes.huhao.me/2017/hello-word/"/>
+    <id>http://notes.huhao.me/2017/hello-word/</id>
+    <published>2017-03-14T13:32:40.000Z</published>
+    <updated>2017-03-14T13:33:01.568Z</updated>
+    
+    <content type="html"><![CDATA[<p>#hello word！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;#hello word！&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>诸葛亮简介</title>
