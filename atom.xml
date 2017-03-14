@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://notes.huhao.me/"/>
-  <updated>2017-03-14T13:53:55.315Z</updated>
+  <updated>2017-03-14T14:02:28.604Z</updated>
   <id>http://notes.huhao.me/</id>
   
   <author>
@@ -16,18 +16,22 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>ceshishanchuwenzhang</title>
-    <link href="http://notes.huhao.me/2017/ceshishanchuwenzhang/"/>
-    <id>http://notes.huhao.me/2017/ceshishanchuwenzhang/</id>
-    <published>2017-03-14T13:53:39.000Z</published>
-    <updated>2017-03-14T13:53:55.315Z</updated>
+    <title>关于在hexo下删除文章报错的问题</title>
+    <link href="http://notes.huhao.me/2017/%E5%85%B3%E4%BA%8E%E5%9C%A8hexo%E4%B8%8B%E5%88%A0%E9%99%A4%E6%96%87%E7%AB%A0%E6%8A%A5%E9%94%99%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://notes.huhao.me/2017/关于在hexo下删除文章报错的问题/</id>
+    <published>2017-03-14T13:55:48.000Z</published>
+    <updated>2017-03-14T14:02:28.604Z</updated>
     
-    <content type="html"><![CDATA[<p>删除文化在那干试试</p>
+    <content type="html"><![CDATA[<blockquote>
+<p>关于在hexo下删除文章会导致hexo失败的问题，原因是在hexo的 <em>post</em> 是不能为空的！！</p>
+</blockquote>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;删除文化在那干试试&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;关于在hexo下删除文章会导致hexo失败的问题，原因是在hexo的 &lt;em&gt;post&lt;/em&gt; 是不能为空的！！&lt;/p&gt;
+&lt;/blockquote&gt;
 
     
     </summary>
