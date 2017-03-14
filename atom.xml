@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://notes.huhao.me/"/>
-  <updated>2017-03-14T14:02:28.604Z</updated>
+  <updated>2017-03-14T14:09:21.313Z</updated>
   <id>http://notes.huhao.me/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端编码规范——注释规范</title>
+    <link href="http://notes.huhao.me/2017/%E5%89%8D%E7%AB%AF%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83%E2%80%94%E2%80%94%E6%B3%A8%E9%87%8A%E8%A7%84%E8%8C%83/"/>
+    <id>http://notes.huhao.me/2017/前端编码规范——注释规范/</id>
+    <published>2017-03-14T14:05:11.000Z</published>
+    <updated>2017-03-14T14:09:21.313Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="文件申明"><a href="#文件申明" class="headerlink" title="文件申明"></a>文件申明</h2><p>顶部添加文件申明信息，包括文件描述、原始作者，如果有更新，则需要添加更新内容、更新作者和更新时间。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * @description: 说明文字</div><div class="line"> * @author: 张三</div><div class="line"> */</div><div class="line"></div><div class="line">/**</div><div class="line"> * @description: 说明文字</div><div class="line"> * @author: 张三</div><div class="line"> * @update: 更新内容 by 李四 2013-04-13 18:32</div><div class="line"> */</div></pre></td></tr></table></figure>
+<h2 id="单行注释与多行注释"><a href="#单行注释与多行注释" class="headerlink" title="单行注释与多行注释"></a>单行注释与多行注释</h2><p>无论是单行注释还是多行注释，注释中的每一行长度都不能超过 <strong>40</strong> 个汉字，或者 <strong>80</strong> 个英文字符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">单行注释</div><div class="line"></div><div class="line">/* this is a short comment */</div><div class="line">多行注释</div><div class="line"></div><div class="line">/*</div><div class="line">* this is comment line 1.</div><div class="line">* this is comment line 2.</div><div class="line">*/</div></pre></td></tr></table></figure>
+<h2 id="函数或方法注释"><a href="#函数或方法注释" class="headerlink" title="函数或方法注释"></a>函数或方法注释</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 这是一个求和函数</div><div class="line"> * @param  &#123;Number&#125; a 第一个数字</div><div class="line"> * @param  &#123;Number&#125; b 第二个数字</div><div class="line"> * @return &#123;Number&#125;   返回两个数字之和</div><div class="line"> */</div><div class="line">var sum = function(a, b) &#123;</div><div class="line">    return a + b;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="模块注释"><a href="#模块注释" class="headerlink" title="模块注释"></a>模块注释</h2><p>模块注释必须单独写在一行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/* 模块：xxxxxx by 张三 */</div><div class="line">...</div><div class="line">/* 模块：xxxxxx by 张三 */</div></pre></td></tr></table></figure>
+<h2 id="样式区块注释"><a href="#样式区块注释" class="headerlink" title="样式区块注释"></a>样式区块注释</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/* header */</div><div class="line">...</div><div class="line">/* footer */</div><div class="line">...</div><div class="line">/* banner */</div><div class="line">...</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;文件申明&quot;&gt;&lt;a href=&quot;#文件申明&quot; class=&quot;headerlink&quot; title=&quot;文件申明&quot;&gt;&lt;/a&gt;文件申明&lt;/h2&gt;&lt;p&gt;顶部添加文件申明信息，包括文件描述、原始作者，如果有更新，则需要添加更新内容、更新作者和更新时间。&lt;/p&gt;
+&lt;figure 
+    
+    </summary>
+    
+      <category term="HTML5" scheme="http://notes.huhao.me/categories/HTML5/"/>
+    
+    
+      <category term="HTML5" scheme="http://notes.huhao.me/tags/HTML5/"/>
+    
+      <category term="CSS3" scheme="http://notes.huhao.me/tags/CSS3/"/>
+    
+      <category term="JavaScript" scheme="http://notes.huhao.me/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>关于在hexo下删除文章报错的问题</title>
