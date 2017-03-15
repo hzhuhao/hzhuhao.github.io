@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://notes.huhao.me/"/>
-  <updated>2017-03-15T03:33:03.112Z</updated>
+  <updated>2017-03-15T10:39:56.732Z</updated>
   <id>http://notes.huhao.me/</id>
   
   <author>
@@ -16,106 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>在centos7中添加一个新用户，并授权</title>
-    <link href="http://notes.huhao.me/2017/%E5%9C%A8centos7%E4%B8%AD%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%96%B0%E7%94%A8%E6%88%B7%EF%BC%8C%E5%B9%B6%E6%8E%88%E6%9D%83.html"/>
-    <id>http://notes.huhao.me/2017/在centos7中添加一个新用户，并授权.html</id>
-    <published>2017-03-15T03:20:00.000Z</published>
-    <updated>2017-03-15T03:33:03.112Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>笔记本装了一个centos，想要让别人也可以登录访问，用自己的账号确实不太好，于是准备新建一个用户给他。</p>
-<h2 id="1-创建新用户"><a href="#1-创建新用户" class="headerlink" title="1.创建新用户"></a>1.创建新用户</h2><p>创建一个用户名为：git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adduser git</div></pre></td></tr></table></figure></p>
-<p>为这个用户初始化密码，linux会判断密码复杂度，不过可以强行忽略：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">passwd git</div><div class="line">更改用户 git 的密码 。</div><div class="line">新的 密码：</div><div class="line">无效的密码： 密码未通过字典检查 - 过于简单化/系统化</div><div class="line">重新输入新的 密码：</div><div class="line">passwd：所有的身份验证令牌已经成功更新。</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<h2 id="2-授权"><a href="#2-授权" class="headerlink" title="2.授权"></a>2.授权</h2><p>个人用户的权限只可以在本home下有完整权限，其他目录要看别人授权。而经常需要root用户的权限，这时候sudo可以化身为root来操作。我记得我曾经sudo创建了文件，然后发现自己并没有读写权限，因为查看权限是root创建的。</p>
-<p>新创建的用户并不能使用sudo命令，需要给他添加授权。</p>
-<p>sudo命令的授权管理是在sudoers文件里的。可以看看sudoers：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# sudoers</div><div class="line">bash: sudoers: 未找到命令...</div><div class="line">[root@localhost ~]# whereis sudoers</div><div class="line">sudoers: /etc/sudoers /etc/sudoers.d /usr/libexec/sudoers.so /usr/share/man/man5/sudoers.5.gz</div></pre></td></tr></table></figure></p>
-<p>找到这个文件位置之后再查看权限：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# ls -l /etc/sudoers</div><div class="line">-r--r----- 1 root root 4251 9月  25 15:08 /etc/sudoers</div></pre></td></tr></table></figure>
-<p>是的，只有只读的权限，如果想要修改的话，需要先添加w权限：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# chmod -v u+w /etc/sudoers</div><div class="line">mode of &quot;/etc/sudoers&quot; changed from 0440 (r--r-----) to 0640 (rw-r-----)</div></pre></td></tr></table></figure>
-<p>然后就可以添加内容了，在下面的一行下追加新增的用户：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# vim /etc/sudoers</div><div class="line">## Allow root to run any commands anywher  </div><div class="line">root    ALL=(ALL)       ALL  </div><div class="line">git  ALL=(ALL)       ALL  #这个是新增的用户</div></pre></td></tr></table></figure>
-<p>wq保存退出，这时候要记得将写权限收回：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# chmod -v u-w /etc/sudoers</div><div class="line">mode of &quot;/etc/sudoers&quot; changed from 0640 (rw-r-----) to 0440 (r--r-----)</div></pre></td></tr></table></figure></p>
-<p>这时候使用新用户登录，使用sudo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[git@localhost ~]$ sudo cat /etc/passwd</div><div class="line">[sudo] password for git: </div><div class="line"></div><div class="line">We trust you have received the usual lecture from the local System</div><div class="line">Administrator. It usually boils down to these three things:</div><div class="line"></div><div class="line">    #1) Respect the privacy of others.</div><div class="line">    #2) Think before you type.</div><div class="line">    #3) With great power comes great responsibility.</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;笔记本装了一个centos，想要让别人也可以登录访问，用自己的账号确实不太好，于是准备新建一个用户给他。&lt;/p&gt;
-&lt;h2 id=&quot;1-创建新用户&quot;&gt;&lt;a href=&quot;#1-创建新用户&quot; class=&quot;headerlink&quot; title=&quot;1.创建新用户&quot;&gt;&lt;/a&gt;1.创建新用户&lt;/h2&gt;&lt;p&gt;创建一个用户名为：git&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;adduser git&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;为这个用户初始化密码，linux会判断密码复杂度，不过可以强行忽略：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;passwd git&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;更改用户 git 的密码 。&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;新的 密码：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;无效的密码： 密码未通过字典检查 - 过于简单化/系统化&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;重新输入新的 密码：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;passwd：所有的身份验证令牌已经成功更新。&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Liunx" scheme="http://notes.huhao.me/categories/Liunx/"/>
-    
-    
-      <category term="Liunx" scheme="http://notes.huhao.me/tags/Liunx/"/>
-    
-      <category term="CentOS" scheme="http://notes.huhao.me/tags/CentOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CentOS7 搭建Git服务器</title>
-    <link href="http://notes.huhao.me/2017/CentOS7%20%E6%90%AD%E5%BB%BAGit%E6%9C%8D%E5%8A%A1%E5%99%A8.html"/>
-    <id>http://notes.huhao.me/2017/CentOS7 搭建Git服务器.html</id>
-    <published>2017-03-15T02:58:00.000Z</published>
-    <updated>2017-03-15T03:05:56.944Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-在服务器上创建一个新用户"><a href="#1-在服务器上创建一个新用户" class="headerlink" title="1.在服务器上创建一个新用户"></a>1.在服务器上创建一个新用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adduser git</div></pre></td></tr></table></figure>
-<h3 id="给git账号创建密码"><a href="#给git账号创建密码" class="headerlink" title="给git账号创建密码"></a>给git账号创建密码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">passwd git</div><div class="line">更改用户 git 的密码 。</div><div class="line">新的 密码：</div><div class="line">无效的密码： 密码未通过字典检查 - 过于简单化/系统化</div><div class="line">重新输入新的 密码：</div><div class="line">passwd：所有的身份验证令牌已经成功更新。</div></pre></td></tr></table></figure>
-<h2 id="2-创建一个Git仓库"><a href="#2-创建一个Git仓库" class="headerlink" title="2.创建一个Git仓库"></a>2.创建一个Git仓库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /data/git //切换到希望创建工作区的目录</div><div class="line">git init --bare sample.git //创建一个Git仓库,此时Git会创建一个唯一分支master</div><div class="line">chown -R git:git sample.git//将sample.git的所有权从root修改到新创建的git</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="3-在服务器端打开RSA认证"><a href="#3-在服务器端打开RSA认证" class="headerlink" title="3.在服务器端打开RSA认证"></a>3.在服务器端打开RSA认证</h2><p>在文件/etc/ssh/sshd_config中添加下列三行内容:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">RSAAuthentication yes</div><div class="line">PubkeyAuthentication yes</div><div class="line">AuthorizedKeysFile  .ssh/authorized_keys</div></pre></td></tr></table></figure>
-<p>创建用于存放客户端公钥的文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /home/git //切换到刚刚创建的git用户目录下</div><div class="line">mkdir .ssh</div><div class="line">vim authorized_keys //创建用于存放客户端公钥的文件</div></pre></td></tr></table></figure>
-<h2 id="4-在客户端创建SSH-key"><a href="#4-在客户端创建SSH-key" class="headerlink" title="4.在客户端创建SSH key"></a>4.在客户端创建SSH key</h2><p>SSH key 可以让你在你的电脑和Code服务器之间建立安全的加密连接。 先执行以下语句来判断是否已经存在本地公钥：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
-<p>如果你看到一长串以 ssh-rsa或 ssh-dsa开头的字符串, 你可以跳过 ssh-keygen的步骤。<br>提示: 最好的情况是一个密码对应一个ssh key，但是那不是必须的。你完全可以跳过创建密码这个步骤。请记住设置的密码并不能被修改或获取。<br>你可以按如下命令来生成ssh key：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;email@163.com&quot;</div></pre></td></tr></table></figure>
-<p>这个指令会要求你提供一个位置和文件名去存放键值对和密码，你可以点击Enter键去使用默认值。<br>用以下命令获取你生成的公钥：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
-<p>复制这个公钥放到你的个人设置中的SSH/My SSH Keys下，请完整拷贝从ssh-开始直到你的用户名和主机名为止的内容。<br>如果打算拷贝你的公钥到你的粘贴板下，请参考你的操作系统使用以下的命令：<br>Windows:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">clip &lt; ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
-<p>Mac:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pbcopy &lt; ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
-<p>GNU/Linux (requires xclip):</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xclip -sel clip &lt; ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
-<h2 id="5-把步骤4生成的公钥导入服务器"><a href="#5-把步骤4生成的公钥导入服务器" class="headerlink" title="5.把步骤4生成的公钥导入服务器"></a>5.把步骤4生成的公钥导入服务器</h2><p>将生成的id_rsa.pub中的内容拷贝到服务器文件/home/git/.ssh/authorized_keys</p>
-<h2 id="6-在客户端clone远程git仓库"><a href="#6-在客户端clone远程git仓库" class="headerlink" title="6.在客户端clone远程git仓库"></a>6.在客户端clone远程git仓库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git clone git@115.28.222.133:/data/git/sample.git</div><div class="line">其中115.28.222.133是服务器端的IP地址</div><div class="line">(由于进行了步骤4和步骤5的设置,所以在clone仓储的时候就无需再输入密码了)</div></pre></td></tr></table></figure>
-<h2 id="7-禁止用户git通过shell进行登录"><a href="#7-禁止用户git通过shell进行登录" class="headerlink" title="7.禁止用户git通过shell进行登录"></a>7.禁止用户git通过shell进行登录</h2><p>由于进行了步骤4和步骤5的设置,此时客户端可以通过ssh git@115.28.222.133 直接登录到服务器,如需禁止,修改文件/etc/passwd:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">将git:x:1000:1000::/home/git:/bin/bash</div><div class="line">修改为:git:x:1000:1000::/home/git:/usr/bin/git-shell</div></pre></td></tr></table></figure>
-<h2 id="初始化master分支"><a href="#初始化master分支" class="headerlink" title="初始化master分支"></a>初始化master分支</h2><p>在进行了一个commit操作后,master分支就会出现,此时执行git push就可以将本地的修改推送到远程的master分支了.</p>
-<p>至此远程git服务器搭建完毕!</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-在服务器上创建一个新用户&quot;&gt;&lt;a href=&quot;#1-在服务器上创建一个新用户&quot; class=&quot;headerlink&quot; title=&quot;1.在服务器上创建一个新用户&quot;&gt;&lt;/a&gt;1.在服务器上创建一个新用户&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;adduser git&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;给git账号创建密码&quot;&gt;&lt;a href=&quot;#给git账号创建密码&quot; class=&quot;headerlink&quot; title=&quot;给git账号创建密码&quot;&gt;&lt;/a&gt;给git账号创建密码&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;passwd git&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;更改用户 git 的密码 。&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;新的 密码：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;无效的密码： 密码未通过字典检查 - 过于简单化/系统化&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;重新输入新的 密码：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;passwd：所有的身份验证令牌已经成功更新。&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;2-创建一个Git仓库&quot;&gt;&lt;a href=&quot;#2-创建一个Git仓库&quot; class=&quot;headerlink&quot; title=&quot;2.创建一个Git仓库&quot;&gt;&lt;/a&gt;2.创建一个Git仓库&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;cd /data/git //切换到希望创建工作区的目录&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git init --bare sample.git //创建一个Git仓库,此时Git会创建一个唯一分支master&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;chown -R git:git sample.git//将sample.git的所有权从root修改到新创建的git&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Liunx" scheme="http://notes.huhao.me/categories/Liunx/"/>
-    
-    
-      <category term="Liunx" scheme="http://notes.huhao.me/tags/Liunx/"/>
-    
-      <category term="Git" scheme="http://notes.huhao.me/tags/Git/"/>
-    
-      <category term="CentOS" scheme="http://notes.huhao.me/tags/CentOS/"/>
-    
-  </entry>
-  
-  <entry>
     <title>提问的智慧 How To Ask Questions The Smart Way</title>
     <link href="http://notes.huhao.me/2017/How%20To%20Ask%20Questions%20The%20Smart%20Way.html"/>
     <id>http://notes.huhao.me/2017/How To Ask Questions The Smart Way.html</id>
-    <published>2017-03-15T02:58:00.000Z</published>
-    <updated>2017-03-15T10:37:13.986Z</updated>
+    <published>2017-03-15T10:40:00.000Z</published>
+    <updated>2017-03-15T10:39:56.732Z</updated>
     
     <content type="html"><![CDATA[<h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p>许多项目在他们的使用协助/说明网页中链接了本指南，这么做很好，我们也鼓励大家都这么做。但如果你是负责管理这个项目网页的人，请在超链接附近的显著位置上注明：</p>
 <p><strong>本指南不提供此项目的实际支持服务！</strong></p>
@@ -472,6 +377,101 @@
       <category term="Git" scheme="http://notes.huhao.me/tags/Git/"/>
     
       <category term="Essay" scheme="http://notes.huhao.me/tags/Essay/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在centos7中添加一个新用户，并授权</title>
+    <link href="http://notes.huhao.me/2017/%E5%9C%A8centos7%E4%B8%AD%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%96%B0%E7%94%A8%E6%88%B7%EF%BC%8C%E5%B9%B6%E6%8E%88%E6%9D%83.html"/>
+    <id>http://notes.huhao.me/2017/在centos7中添加一个新用户，并授权.html</id>
+    <published>2017-03-15T03:20:00.000Z</published>
+    <updated>2017-03-15T03:33:03.112Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>笔记本装了一个centos，想要让别人也可以登录访问，用自己的账号确实不太好，于是准备新建一个用户给他。</p>
+<h2 id="1-创建新用户"><a href="#1-创建新用户" class="headerlink" title="1.创建新用户"></a>1.创建新用户</h2><p>创建一个用户名为：git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adduser git</div></pre></td></tr></table></figure></p>
+<p>为这个用户初始化密码，linux会判断密码复杂度，不过可以强行忽略：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">passwd git</div><div class="line">更改用户 git 的密码 。</div><div class="line">新的 密码：</div><div class="line">无效的密码： 密码未通过字典检查 - 过于简单化/系统化</div><div class="line">重新输入新的 密码：</div><div class="line">passwd：所有的身份验证令牌已经成功更新。</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h2 id="2-授权"><a href="#2-授权" class="headerlink" title="2.授权"></a>2.授权</h2><p>个人用户的权限只可以在本home下有完整权限，其他目录要看别人授权。而经常需要root用户的权限，这时候sudo可以化身为root来操作。我记得我曾经sudo创建了文件，然后发现自己并没有读写权限，因为查看权限是root创建的。</p>
+<p>新创建的用户并不能使用sudo命令，需要给他添加授权。</p>
+<p>sudo命令的授权管理是在sudoers文件里的。可以看看sudoers：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# sudoers</div><div class="line">bash: sudoers: 未找到命令...</div><div class="line">[root@localhost ~]# whereis sudoers</div><div class="line">sudoers: /etc/sudoers /etc/sudoers.d /usr/libexec/sudoers.so /usr/share/man/man5/sudoers.5.gz</div></pre></td></tr></table></figure></p>
+<p>找到这个文件位置之后再查看权限：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# ls -l /etc/sudoers</div><div class="line">-r--r----- 1 root root 4251 9月  25 15:08 /etc/sudoers</div></pre></td></tr></table></figure>
+<p>是的，只有只读的权限，如果想要修改的话，需要先添加w权限：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# chmod -v u+w /etc/sudoers</div><div class="line">mode of &quot;/etc/sudoers&quot; changed from 0440 (r--r-----) to 0640 (rw-r-----)</div></pre></td></tr></table></figure>
+<p>然后就可以添加内容了，在下面的一行下追加新增的用户：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# vim /etc/sudoers</div><div class="line">## Allow root to run any commands anywher  </div><div class="line">root    ALL=(ALL)       ALL  </div><div class="line">git  ALL=(ALL)       ALL  #这个是新增的用户</div></pre></td></tr></table></figure>
+<p>wq保存退出，这时候要记得将写权限收回：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# chmod -v u-w /etc/sudoers</div><div class="line">mode of &quot;/etc/sudoers&quot; changed from 0640 (rw-r-----) to 0440 (r--r-----)</div></pre></td></tr></table></figure></p>
+<p>这时候使用新用户登录，使用sudo：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[git@localhost ~]$ sudo cat /etc/passwd</div><div class="line">[sudo] password for git: </div><div class="line"></div><div class="line">We trust you have received the usual lecture from the local System</div><div class="line">Administrator. It usually boils down to these three things:</div><div class="line"></div><div class="line">    #1) Respect the privacy of others.</div><div class="line">    #2) Think before you type.</div><div class="line">    #3) With great power comes great responsibility.</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;笔记本装了一个centos，想要让别人也可以登录访问，用自己的账号确实不太好，于是准备新建一个用户给他。&lt;/p&gt;
+&lt;h2 id=&quot;1-创建新用户&quot;&gt;&lt;a href=&quot;#1-创建新用户&quot; class=&quot;headerlink&quot; title=&quot;1.创建新用户&quot;&gt;&lt;/a&gt;1.创建新用户&lt;/h2&gt;&lt;p&gt;创建一个用户名为：git&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;adduser git&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;为这个用户初始化密码，linux会判断密码复杂度，不过可以强行忽略：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;passwd git&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;更改用户 git 的密码 。&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;新的 密码：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;无效的密码： 密码未通过字典检查 - 过于简单化/系统化&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;重新输入新的 密码：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;passwd：所有的身份验证令牌已经成功更新。&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Liunx" scheme="http://notes.huhao.me/categories/Liunx/"/>
+    
+    
+      <category term="Liunx" scheme="http://notes.huhao.me/tags/Liunx/"/>
+    
+      <category term="CentOS" scheme="http://notes.huhao.me/tags/CentOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS7 搭建Git服务器</title>
+    <link href="http://notes.huhao.me/2017/CentOS7%20%E6%90%AD%E5%BB%BAGit%E6%9C%8D%E5%8A%A1%E5%99%A8.html"/>
+    <id>http://notes.huhao.me/2017/CentOS7 搭建Git服务器.html</id>
+    <published>2017-03-15T02:58:00.000Z</published>
+    <updated>2017-03-15T03:05:56.944Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-在服务器上创建一个新用户"><a href="#1-在服务器上创建一个新用户" class="headerlink" title="1.在服务器上创建一个新用户"></a>1.在服务器上创建一个新用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adduser git</div></pre></td></tr></table></figure>
+<h3 id="给git账号创建密码"><a href="#给git账号创建密码" class="headerlink" title="给git账号创建密码"></a>给git账号创建密码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">passwd git</div><div class="line">更改用户 git 的密码 。</div><div class="line">新的 密码：</div><div class="line">无效的密码： 密码未通过字典检查 - 过于简单化/系统化</div><div class="line">重新输入新的 密码：</div><div class="line">passwd：所有的身份验证令牌已经成功更新。</div></pre></td></tr></table></figure>
+<h2 id="2-创建一个Git仓库"><a href="#2-创建一个Git仓库" class="headerlink" title="2.创建一个Git仓库"></a>2.创建一个Git仓库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /data/git //切换到希望创建工作区的目录</div><div class="line">git init --bare sample.git //创建一个Git仓库,此时Git会创建一个唯一分支master</div><div class="line">chown -R git:git sample.git//将sample.git的所有权从root修改到新创建的git</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="3-在服务器端打开RSA认证"><a href="#3-在服务器端打开RSA认证" class="headerlink" title="3.在服务器端打开RSA认证"></a>3.在服务器端打开RSA认证</h2><p>在文件/etc/ssh/sshd_config中添加下列三行内容:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">RSAAuthentication yes</div><div class="line">PubkeyAuthentication yes</div><div class="line">AuthorizedKeysFile  .ssh/authorized_keys</div></pre></td></tr></table></figure>
+<p>创建用于存放客户端公钥的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /home/git //切换到刚刚创建的git用户目录下</div><div class="line">mkdir .ssh</div><div class="line">vim authorized_keys //创建用于存放客户端公钥的文件</div></pre></td></tr></table></figure>
+<h2 id="4-在客户端创建SSH-key"><a href="#4-在客户端创建SSH-key" class="headerlink" title="4.在客户端创建SSH key"></a>4.在客户端创建SSH key</h2><p>SSH key 可以让你在你的电脑和Code服务器之间建立安全的加密连接。 先执行以下语句来判断是否已经存在本地公钥：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
+<p>如果你看到一长串以 ssh-rsa或 ssh-dsa开头的字符串, 你可以跳过 ssh-keygen的步骤。<br>提示: 最好的情况是一个密码对应一个ssh key，但是那不是必须的。你完全可以跳过创建密码这个步骤。请记住设置的密码并不能被修改或获取。<br>你可以按如下命令来生成ssh key：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;email@163.com&quot;</div></pre></td></tr></table></figure>
+<p>这个指令会要求你提供一个位置和文件名去存放键值对和密码，你可以点击Enter键去使用默认值。<br>用以下命令获取你生成的公钥：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
+<p>复制这个公钥放到你的个人设置中的SSH/My SSH Keys下，请完整拷贝从ssh-开始直到你的用户名和主机名为止的内容。<br>如果打算拷贝你的公钥到你的粘贴板下，请参考你的操作系统使用以下的命令：<br>Windows:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">clip &lt; ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
+<p>Mac:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pbcopy &lt; ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
+<p>GNU/Linux (requires xclip):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xclip -sel clip &lt; ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
+<h2 id="5-把步骤4生成的公钥导入服务器"><a href="#5-把步骤4生成的公钥导入服务器" class="headerlink" title="5.把步骤4生成的公钥导入服务器"></a>5.把步骤4生成的公钥导入服务器</h2><p>将生成的id_rsa.pub中的内容拷贝到服务器文件/home/git/.ssh/authorized_keys</p>
+<h2 id="6-在客户端clone远程git仓库"><a href="#6-在客户端clone远程git仓库" class="headerlink" title="6.在客户端clone远程git仓库"></a>6.在客户端clone远程git仓库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git clone git@115.28.222.133:/data/git/sample.git</div><div class="line">其中115.28.222.133是服务器端的IP地址</div><div class="line">(由于进行了步骤4和步骤5的设置,所以在clone仓储的时候就无需再输入密码了)</div></pre></td></tr></table></figure>
+<h2 id="7-禁止用户git通过shell进行登录"><a href="#7-禁止用户git通过shell进行登录" class="headerlink" title="7.禁止用户git通过shell进行登录"></a>7.禁止用户git通过shell进行登录</h2><p>由于进行了步骤4和步骤5的设置,此时客户端可以通过ssh git@115.28.222.133 直接登录到服务器,如需禁止,修改文件/etc/passwd:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">将git:x:1000:1000::/home/git:/bin/bash</div><div class="line">修改为:git:x:1000:1000::/home/git:/usr/bin/git-shell</div></pre></td></tr></table></figure>
+<h2 id="初始化master分支"><a href="#初始化master分支" class="headerlink" title="初始化master分支"></a>初始化master分支</h2><p>在进行了一个commit操作后,master分支就会出现,此时执行git push就可以将本地的修改推送到远程的master分支了.</p>
+<p>至此远程git服务器搭建完毕!</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-在服务器上创建一个新用户&quot;&gt;&lt;a href=&quot;#1-在服务器上创建一个新用户&quot; class=&quot;headerlink&quot; title=&quot;1.在服务器上创建一个新用户&quot;&gt;&lt;/a&gt;1.在服务器上创建一个新用户&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;adduser git&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;给git账号创建密码&quot;&gt;&lt;a href=&quot;#给git账号创建密码&quot; class=&quot;headerlink&quot; title=&quot;给git账号创建密码&quot;&gt;&lt;/a&gt;给git账号创建密码&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;passwd git&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;更改用户 git 的密码 。&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;新的 密码：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;无效的密码： 密码未通过字典检查 - 过于简单化/系统化&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;重新输入新的 密码：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;passwd：所有的身份验证令牌已经成功更新。&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;2-创建一个Git仓库&quot;&gt;&lt;a href=&quot;#2-创建一个Git仓库&quot; class=&quot;headerlink&quot; title=&quot;2.创建一个Git仓库&quot;&gt;&lt;/a&gt;2.创建一个Git仓库&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;cd /data/git //切换到希望创建工作区的目录&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git init --bare sample.git //创建一个Git仓库,此时Git会创建一个唯一分支master&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;chown -R git:git sample.git//将sample.git的所有权从root修改到新创建的git&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Liunx" scheme="http://notes.huhao.me/categories/Liunx/"/>
+    
+    
+      <category term="Liunx" scheme="http://notes.huhao.me/tags/Liunx/"/>
+    
+      <category term="Git" scheme="http://notes.huhao.me/tags/Git/"/>
+    
+      <category term="CentOS" scheme="http://notes.huhao.me/tags/CentOS/"/>
     
   </entry>
   
