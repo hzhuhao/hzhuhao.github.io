@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://notes.huhao.me/"/>
-  <updated>2017-03-15T03:04:06.600Z</updated>
+  <updated>2017-03-15T03:05:56.944Z</updated>
   <id>http://notes.huhao.me/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="http://notes.huhao.me/2017/CentOS7%20%E6%90%AD%E5%BB%BAGit%E6%9C%8D%E5%8A%A1%E5%99%A8.html"/>
     <id>http://notes.huhao.me/2017/CentOS7 搭建Git服务器.html</id>
     <published>2017-03-15T02:58:00.000Z</published>
-    <updated>2017-03-15T03:04:06.600Z</updated>
+    <updated>2017-03-15T03:05:56.944Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-在服务器上创建一个新用户"><a href="#1-在服务器上创建一个新用户" class="headerlink" title="1.在服务器上创建一个新用户"></a>1.在服务器上创建一个新用户</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adduser git</div></pre></td></tr></table></figure>
-<h3 id="给git账号创建密码"><a href="#给git账号创建密码" class="headerlink" title="给git账号创建密码"></a>给git账号创建密码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">passwd git</div></pre></td></tr></table></figure>
+<h3 id="给git账号创建密码"><a href="#给git账号创建密码" class="headerlink" title="给git账号创建密码"></a>给git账号创建密码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">passwd git</div><div class="line">更改用户 git 的密码 。</div><div class="line">新的 密码：</div><div class="line">无效的密码： 密码未通过字典检查 - 过于简单化/系统化</div><div class="line">重新输入新的 密码：</div><div class="line">passwd：所有的身份验证令牌已经成功更新。</div></pre></td></tr></table></figure>
 <h2 id="2-创建一个Git仓库"><a href="#2-创建一个Git仓库" class="headerlink" title="2.创建一个Git仓库"></a>2.创建一个Git仓库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /data/git //切换到希望创建工作区的目录</div><div class="line">git init --bare sample.git //创建一个Git仓库,此时Git会创建一个唯一分支master</div><div class="line">chown -R git:git sample.git//将sample.git的所有权从root修改到新创建的git</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="3-在服务器端打开RSA认证"><a href="#3-在服务器端打开RSA认证" class="headerlink" title="3.在服务器端打开RSA认证"></a>3.在服务器端打开RSA认证</h2><p>在文件/etc/ssh/sshd_config中添加下列三行内容:</p>
@@ -53,7 +53,7 @@
     <summary type="html">
     
       &lt;h2 id=&quot;1-在服务器上创建一个新用户&quot;&gt;&lt;a href=&quot;#1-在服务器上创建一个新用户&quot; class=&quot;headerlink&quot; title=&quot;1.在服务器上创建一个新用户&quot;&gt;&lt;/a&gt;1.在服务器上创建一个新用户&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;adduser git&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;给git账号创建密码&quot;&gt;&lt;a href=&quot;#给git账号创建密码&quot; class=&quot;headerlink&quot; title=&quot;给git账号创建密码&quot;&gt;&lt;/a&gt;给git账号创建密码&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;passwd git&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;给git账号创建密码&quot;&gt;&lt;a href=&quot;#给git账号创建密码&quot; class=&quot;headerlink&quot; title=&quot;给git账号创建密码&quot;&gt;&lt;/a&gt;给git账号创建密码&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;passwd git&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;更改用户 git 的密码 。&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;新的 密码：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;无效的密码： 密码未通过字典检查 - 过于简单化/系统化&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;重新输入新的 密码：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;passwd：所有的身份验证令牌已经成功更新。&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;2-创建一个Git仓库&quot;&gt;&lt;a href=&quot;#2-创建一个Git仓库&quot; class=&quot;headerlink&quot; title=&quot;2.创建一个Git仓库&quot;&gt;&lt;/a&gt;2.创建一个Git仓库&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;cd /data/git //切换到希望创建工作区的目录&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;git init --bare sample.git //创建一个Git仓库,此时Git会创建一个唯一分支master&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;chown -R git:git sample.git//将sample.git的所有权从root修改到新创建的git&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
