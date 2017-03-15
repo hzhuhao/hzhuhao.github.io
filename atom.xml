@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://notes.huhao.me/"/>
-  <updated>2017-03-15T03:15:35.907Z</updated>
+  <updated>2017-03-15T03:33:03.112Z</updated>
   <id>http://notes.huhao.me/</id>
   
   <author>
@@ -20,15 +20,15 @@
     <link href="http://notes.huhao.me/2017/%E5%9C%A8centos7%E4%B8%AD%E6%B7%BB%E5%8A%A0%E4%B8%80%E4%B8%AA%E6%96%B0%E7%94%A8%E6%88%B7%EF%BC%8C%E5%B9%B6%E6%8E%88%E6%9D%83.html"/>
     <id>http://notes.huhao.me/2017/在centos7中添加一个新用户，并授权.html</id>
     <published>2017-03-15T03:20:00.000Z</published>
-    <updated>2017-03-15T03:15:35.907Z</updated>
+    <updated>2017-03-15T03:33:03.112Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>笔记本装了一个centos，想要让别人也可以登录访问，用自己的账号确实不太好，于是准备新建一个用户给他。</p>
 <h2 id="1-创建新用户"><a href="#1-创建新用户" class="headerlink" title="1.创建新用户"></a>1.创建新用户</h2><p>创建一个用户名为：git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adduser git</div></pre></td></tr></table></figure></p>
 <p>为这个用户初始化密码，linux会判断密码复杂度，不过可以强行忽略：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">passwd git</div><div class="line">更改用户 git 的密码 。</div><div class="line">新的 密码：</div><div class="line">无效的密码： 密码未通过字典检查 - 过于简单化/系统化</div><div class="line">重新输入新的 密码：</div><div class="line">passwd：所有的身份验证令牌已经成功更新。</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <h2 id="2-授权"><a href="#2-授权" class="headerlink" title="2.授权"></a>2.授权</h2><p>个人用户的权限只可以在本home下有完整权限，其他目录要看别人授权。而经常需要root用户的权限，这时候sudo可以化身为root来操作。我记得我曾经sudo创建了文件，然后发现自己并没有读写权限，因为查看权限是root创建的。</p>
 <p>新创建的用户并不能使用sudo命令，需要给他添加授权。</p>
 <p>sudo命令的授权管理是在sudoers文件里的。可以看看sudoers：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# sudoers</div><div class="line">bash: sudoers: 未找到命令...</div><div class="line">[root@localhost ~]# whereis sudoers</div><div class="line">sudoers: /etc/sudoers /etc/sudoers.d /usr/libexec/sudoers.so /usr/share/man/man5/sudoers.5.gz</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
 <p>找到这个文件位置之后再查看权限：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# ls -l /etc/sudoers</div><div class="line">-r--r----- 1 root root 4251 9月  25 15:08 /etc/sudoers</div></pre></td></tr></table></figure>
 <p>是的，只有只读的权限，如果想要修改的话，需要先添加w权限：</p>
@@ -44,9 +44,6 @@
       &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;笔记本装了一个centos，想要让别人也可以登录访问，用自己的账号确实不太好，于是准备新建一个用户给他。&lt;/p&gt;
 &lt;h2 id=&quot;1-创建新用户&quot;&gt;&lt;a href=&quot;#1-创建新用户&quot; class=&quot;headerlink&quot; title=&quot;1.创建新用户&quot;&gt;&lt;/a&gt;1.创建新用户&lt;/h2&gt;&lt;p&gt;创建一个用户名为：git&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;adduser git&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;为这个用户初始化密码，linux会判断密码复杂度，不过可以强行忽略：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;passwd git&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;更改用户 git 的密码 。&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;新的 密码：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;无效的密码： 密码未通过字典检查 - 过于简单化/系统化&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;重新输入新的 密码：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;passwd：所有的身份验证令牌已经成功更新。&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2-授权&quot;&gt;&lt;a href=&quot;#2-授权&quot; class=&quot;headerlink&quot; title=&quot;2.授权&quot;&gt;&lt;/a&gt;2.授权&lt;/h2&gt;&lt;p&gt;个人用户的权限只可以在本home下有完整权限，其他目录要看别人授权。而经常需要root用户的权限，这时候sudo可以化身为root来操作。我记得我曾经sudo创建了文件，然后发现自己并没有读写权限，因为查看权限是root创建的。&lt;/p&gt;
-&lt;p&gt;新创建的用户并不能使用sudo命令，需要给他添加授权。&lt;/p&gt;
-&lt;p&gt;sudo命令的授权管理是在sudoers文件里的。可以看看sudoers：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[root@localhost ~]# sudoers&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;bash: sudoers: 未找到命令...&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[root@localhost ~]# whereis sudoers&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;sudoers: /etc/sudoers /etc/sudoers.d /usr/libexec/sudoers.so /usr/share/man/man5/sudoers.5.gz&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
     
     </summary>
     
@@ -605,9 +602,9 @@
       <category term="HTML5" scheme="http://notes.huhao.me/categories/HTML5/"/>
     
     
-      <category term="HTML5" scheme="http://notes.huhao.me/tags/HTML5/"/>
-    
       <category term="CSS3" scheme="http://notes.huhao.me/tags/CSS3/"/>
+    
+      <category term="HTML5" scheme="http://notes.huhao.me/tags/HTML5/"/>
     
       <category term="JavaScript" scheme="http://notes.huhao.me/tags/JavaScript/"/>
     
