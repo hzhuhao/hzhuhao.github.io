@@ -377,9 +377,9 @@
       <category term="Essay" scheme="http://notes.huhao.me/categories/Essay/"/>
     
     
-      <category term="Essay" scheme="http://notes.huhao.me/tags/Essay/"/>
-    
       <category term="Git" scheme="http://notes.huhao.me/tags/Git/"/>
+    
+      <category term="Essay" scheme="http://notes.huhao.me/tags/Essay/"/>
     
   </entry>
   
@@ -470,9 +470,9 @@
       <category term="Liunx" scheme="http://notes.huhao.me/categories/Liunx/"/>
     
     
-      <category term="Git" scheme="http://notes.huhao.me/tags/Git/"/>
-    
       <category term="Liunx" scheme="http://notes.huhao.me/tags/Liunx/"/>
+    
+      <category term="Git" scheme="http://notes.huhao.me/tags/Git/"/>
     
       <category term="CentOS" scheme="http://notes.huhao.me/tags/CentOS/"/>
     
@@ -970,9 +970,9 @@
       <category term="HTML5" scheme="http://notes.huhao.me/categories/HTML5/"/>
     
     
-      <category term="HTML5" scheme="http://notes.huhao.me/tags/HTML5/"/>
-    
       <category term="CSS3" scheme="http://notes.huhao.me/tags/CSS3/"/>
+    
+      <category term="HTML5" scheme="http://notes.huhao.me/tags/HTML5/"/>
     
       <category term="JavaScript" scheme="http://notes.huhao.me/tags/JavaScript/"/>
     
