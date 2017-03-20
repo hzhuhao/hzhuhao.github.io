@@ -50,9 +50,10 @@
     <link href="http://notes.huhao.me/2017/jwplayer%E7%BD%91%E9%A1%B5%E6%92%AD%E6%94%BE%E5%99%A8%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95.html"/>
     <id>http://notes.huhao.me/2017/jwplayer网页播放器使用方法.html</id>
     <published>2017-03-20T15:55:00.000Z</published>
-    <updated>2017-03-20T15:55:45.416Z</updated>
+    <updated>2017-03-20T16:08:28.729Z</updated>
     
     <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line"> &lt;head&gt;</div><div class="line"> &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line"> &lt;title&gt;&lt;/title&gt;</div><div class="line"> &lt;script src=&quot;js/jquery-1.9.1.min.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</div><div class="line"> </div><div class="line"> &lt;script src=&quot;js/jwplayer.html5.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</div><div class="line"> &lt;script src=&quot;js/jwplayer.js&quot; type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</div><div class="line"> &lt;/head&gt;</div><div class="line"> &lt;body&gt;</div><div class="line"> &lt;div id=&quot;jwplay&quot;&gt;&lt;/div&gt;</div><div class="line"> &lt;script type=&quot;text/javascript&quot;&gt;</div><div class="line"> jwplayer(&quot;jwplay&quot;).setup(&#123;</div><div class="line"> flashplayer: &quot;js/jwplayer.flash.swf&quot;,</div><div class="line"> file: &quot;11111111.mp4&quot;,</div><div class="line"> &apos;autostart&apos;: &apos;false&apos;,</div><div class="line"> width:711,</div><div class="line"> height:400</div><div class="line"> &#125;);</div><div class="line"> &lt;/script&gt;</div><div class="line"> &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>对于一个成功的产品，它是对外封闭的，但又是对外开放的，这句话并不矛盾，让我来说一下，<br>说它对外封闭是因为它本身的代码不允许你去修改，而说它开放，<br>是因为它为我们定义了很多ＡＰＩ，或者叫回调方法，对于jwplayer来说，<br>它为我们提供了很多js的回调方法（事件），它被包含在events属性上的．</p>
 <h3 id="应用场合"><a href="#应用场合" class="headerlink" title="应用场合"></a>应用场合</h3><p>播放时记录当前视频的时间，播放完成时写入完成的时间，像这些功能，我们都可以通过事件回调的方法解决，即为events属性赋相应的值．</p>
 <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>测试时，jwplayer需要在正式网站上测试，而本地打开时，它的events属性是不启作用的</p>
@@ -145,7 +146,7 @@
     
     <summary type="html">
     
-      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/di
+      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;html&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;lt;head&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;lt;meta charset=&amp;quot;UTF-8&amp;quot;&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;lt;script src=&amp;quot;js/jquery-1.9.1.min.js&amp;quot; type=&amp;quot;text/javascript&amp;quot; charset=&amp;quot;utf-8&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;lt;script src=&amp;quot;js/jwplayer.html5.js&amp;quot; type=&amp;quot;text/javascript&amp;quot; charset=&amp;quot;utf-8&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;lt;script src=&amp;quot;js/jwplayer.js&amp;quot; type=&amp;quot;text/javascript&amp;quot; charset=&amp;quot;utf-8&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;lt;/head&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;lt;body&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;lt;div id=&amp;quot;jwplay&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; jwplayer(&amp;quot;jwplay&amp;quot;).setup(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; flashplayer: &amp;quot;js/jwplayer.flash.swf&amp;quot;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; file: &amp;quot;11111111.mp4&amp;quot;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;apos;autostart&amp;apos;: &amp;apos;false&amp;apos;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; width:711,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; height:400&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;lt;/script&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;lt;/body&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;/html&amp;gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -161,12 +162,13 @@
     <link href="http://notes.huhao.me/2017/uploadify%20%E8%BF%94%E5%9B%9E%E5%80%BC%EF%BC%88%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%EF%BC%89%E6%80%BB%E7%BB%93.html"/>
     <id>http://notes.huhao.me/2017/uploadify 返回值（回调函数）总结.html</id>
     <published>2017-03-20T15:54:00.000Z</published>
-    <updated>2017-03-20T15:56:11.731Z</updated>
+    <updated>2017-03-20T16:09:10.867Z</updated>
     
     <content type="html"><![CDATA[<p>uploadify 返回值（回调函数）总结：</p>
 <p>最近使用开发一个图片上传模块的时候使用了一个jq插件–uploadify，但是下面就是让人很苦逼的一个下午……一直调试不好，无法接收返回值。google之后把部分都是说使用onComplete就可以接收返回值，并加以处理，但是无调试了多次仍不能接收。各种原因都找过了，什么跨域啊，session问题啊，……</p>
 <p>到官方网站也没有查找到解决办法，而且发现这个竟然还有付费版本，我想可能是我用的是免费版本不提供技术支持（逼我们用付费版？？？）</p>
 <p>最后我发现了另一个参数，最终解决了问题。</p>
+<a id="more"></a>
 <p>下面上代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">$(function() &#123;</div><div class="line"> $(&apos;#file_upload&apos;).uploadify(&#123;</div><div class="line"> &apos;formData&apos; : &#123;</div><div class="line"> &apos;timestamp&apos; : &apos;&lt;?php echo $timestamp;?&gt;&apos;,</div><div class="line"> &apos;token&apos; : &apos;&lt;?php echo md5(&apos;unique_salt&apos; . $timestamp);?&gt;&apos;</div><div class="line"> &#125;,</div><div class="line"> &apos;swf&apos; : &apos;./uploadify.swf&apos;,</div><div class="line"> &apos;uploader&apos; : &apos;./uploadify.php&apos;,</div><div class="line"> //&apos;uploader&apos; : &apos;http://s.v9.com/getpic/upload.php&apos;,</div><div class="line"> &apos;debug&apos;:true,</div><div class="line"> &apos;scriptData&apos;: &#123; &apos;key&apos;: &apos;123&apos; &#125;,</div><div class="line"> &apos;multi&apos; : true,</div><div class="line"> &apos;onComplete&apos; : function(event, ID, fileObj, response, data) &#123;</div><div class="line"> //alert(&apos;There are &apos; + data.fileCount + &apos; files remaining in the queue.&apos;);</div><div class="line"> alert(&apos;qerew&apos;);</div><div class="line"> &#125;,</div><div class="line"> &apos;onUploadSuccess&apos;:function(file,data,response)&#123;</div><div class="line"> alert(&apos;123&apos;);</div><div class="line"> &#125;</div><div class="line"> &#125;);</div><div class="line"> &#125;);</div></pre></td></tr></table></figure>
 <p>注意：加粗，这两行就是接收返回值的，返回值在data里面</p>
@@ -176,7 +178,9 @@
     <summary type="html">
     
       &lt;p&gt;uploadify 返回值（回调函数）总结：&lt;/p&gt;
-&lt;p&gt;最近使用开发一个图片上传模块的时候使用了一个jq插件–uploadify，但是下面就是让人很苦逼的一个下午……一直调试不好，无法接收返回值。google之后把部分都是说使用onComplete就可以接收返回值，并加
+&lt;p&gt;最近使用开发一个图片上传模块的时候使用了一个jq插件–uploadify，但是下面就是让人很苦逼的一个下午……一直调试不好，无法接收返回值。google之后把部分都是说使用onComplete就可以接收返回值，并加以处理，但是无调试了多次仍不能接收。各种原因都找过了，什么跨域啊，session问题啊，……&lt;/p&gt;
+&lt;p&gt;到官方网站也没有查找到解决办法，而且发现这个竟然还有付费版本，我想可能是我用的是免费版本不提供技术支持（逼我们用付费版？？？）&lt;/p&gt;
+&lt;p&gt;最后我发现了另一个参数，最终解决了问题。&lt;/p&gt;
     
     </summary>
     
@@ -192,11 +196,12 @@
     <link href="http://notes.huhao.me/2017/PHP%E5%AE%89%E5%85%A8%E7%BC%96%E7%A8%8B%EF%BC%9A%E8%B7%A8%E7%AB%99%E8%AF%B7%E6%B1%82%E4%BC%AA%E9%80%A0CSRF%E7%9A%84%E9%98%B2%E5%BE%A1.html"/>
     <id>http://notes.huhao.me/2017/PHP安全编程：跨站请求伪造CSRF的防御.html</id>
     <published>2017-03-20T15:51:00.000Z</published>
-    <updated>2017-03-20T15:52:01.742Z</updated>
+    <updated>2017-03-20T16:09:40.230Z</updated>
     
     <content type="html"><![CDATA[<p>跨站请求伪造(CSRF)是一种允许攻击者通过受害者发送任意HTTP请求的一类攻击方法。此处所指的受害者是一个不知情的同谋，所有的伪造请求都由他发起，而不是攻击者。这样，很你就很难确定哪些请求是属于跨站请求伪造攻击。事实上，如果没有对跨站请求伪造攻击进行特意防范的话，你的应用很有可能是有漏洞的。</p>
 <p>请看下面一个简单的应用，它允许用户购买钢笔或铅笔。界面上包含下面的表单：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;form action=&quot;buy.php&quot; method=&quot;POST&quot;&gt;</div><div class="line"> &lt;p&gt;</div><div class="line"> Item:</div><div class="line"> &lt;select name=&quot;item&quot;&gt;</div><div class="line"> &lt;option name=&quot;pen&quot;&gt;pen&lt;/option&gt;</div><div class="line"> &lt;option name=&quot;pencil&quot;&gt;pencil&lt;/option&gt;</div><div class="line"> &lt;/select&gt;&lt;br /&gt;</div><div class="line"> Quantity: &lt;input type=&quot;text&quot; name=&quot;quantity&quot; /&gt;&lt;br /&gt;</div><div class="line"> &lt;input type=&quot;submit&quot; value=&quot;Buy&quot; /&gt;</div><div class="line"> &lt;/p&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>一个攻击者会首先使用你的应用以收集一些基本信息。例如，攻击者首先访问表单并发现两个表单元素item及quantity，他也同时知道了item的值会是铅笔或是钢笔。</p>
 <p>下面的buy.php程序处理表单的提交信息：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"></div><div class="line">session_start();</div><div class="line"> $clean = array();</div><div class="line"></div><div class="line">if (isset($_REQUEST[&apos;item&apos;] &amp;&amp; isset($_REQUEST[&apos;quantity&apos;]))</div><div class="line"> &#123;</div><div class="line"> /* Filter Input ($_REQUEST[&apos;item&apos;], $_REQUEST[&apos;quantity&apos;]) */</div><div class="line"></div><div class="line">if (buy_item($clean[&apos;item&apos;], $clean[&apos;quantity&apos;]))</div><div class="line"> &#123;</div><div class="line"> echo &apos;&lt;p&gt;Thanks for your purchase.&lt;/p&gt;&apos;;</div><div class="line"> &#125;</div><div class="line"> else</div><div class="line"> &#123;</div><div class="line"> echo &apos;&lt;p&gt;There was a problem with your order.&lt;/p&gt;&apos;;</div><div class="line"> &#125;</div><div class="line"> &#125;</div><div class="line"></div><div class="line">?&gt;</div></pre></td></tr></table></figure>
@@ -230,7 +235,9 @@
     
     <summary type="html">
     
-      &lt;p&gt;跨站请求伪造(CSRF)是一种允许攻击者通过受害者发送任意HTTP请求的一类攻击方法。此处所指的受害者是一个不知情的同谋，所有的伪造请求都由他发起，而不是攻击者。这样，很你就很难确定哪些请求是属于跨站请求伪造攻击。事实上，如果没有对跨站请求伪造攻击进行特意防范的话，你的应用
+      &lt;p&gt;跨站请求伪造(CSRF)是一种允许攻击者通过受害者发送任意HTTP请求的一类攻击方法。此处所指的受害者是一个不知情的同谋，所有的伪造请求都由他发起，而不是攻击者。这样，很你就很难确定哪些请求是属于跨站请求伪造攻击。事实上，如果没有对跨站请求伪造攻击进行特意防范的话，你的应用很有可能是有漏洞的。&lt;/p&gt;
+&lt;p&gt;请看下面一个简单的应用，它允许用户购买钢笔或铅笔。界面上包含下面的表单：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;form action=&amp;quot;buy.php&amp;quot; method=&amp;quot;POST&amp;quot;&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;lt;p&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; Item:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;lt;select name=&amp;quot;item&amp;quot;&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;lt;option name=&amp;quot;pen&amp;quot;&amp;gt;pen&amp;lt;/option&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;lt;option name=&amp;quot;pencil&amp;quot;&amp;gt;pencil&amp;lt;/option&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;lt;/select&amp;gt;&amp;lt;br /&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; Quantity: &amp;lt;input type=&amp;quot;text&amp;quot; name=&amp;quot;quantity&amp;quot; /&amp;gt;&amp;lt;br /&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;lt;input type=&amp;quot;submit&amp;quot; value=&amp;quot;Buy&amp;quot; /&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;lt;/p&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;/form&amp;gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -246,10 +253,11 @@
     <link href="http://notes.huhao.me/2017/mysqlhotcopy%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95%E3%80%90%E5%BF%AB%E9%80%9F%E5%A4%87%E4%BB%BDmysql%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%91%E5%8F%8A%E9%94%99%E8%AF%AF%E8%A7%A3.html"/>
     <id>http://notes.huhao.me/2017/mysqlhotcopy的使用和安装方法【快速备份mysql数据库】及错误解.html</id>
     <published>2017-03-20T15:49:00.000Z</published>
-    <updated>2017-03-20T15:56:30.008Z</updated>
+    <updated>2017-03-20T16:10:06.534Z</updated>
     
     <content type="html"><![CDATA[<p>mysqlhotcopy是使用LOCK TABLES、FLUSH TABLES和cp或scp来快速备份数据库，mysqlhotcopy是由Tim Bunce用Perl脚本编写的。它是备份数据库或单个表的最快的途径，但它不能远程运行只能运行在数据库目录所在的机器上。注意：mysqlhotcopy只用于备份MyISAM。</p>
 <p><strong>mysqlhotcopy与mysql自带的mysqldump异同比较：</strong><br>mysqlhotcopy只适用于 MyISAM 引擎，而后则则可同时使用于MyISAM引擎和InodDB引擎.<br>mysqlhotcopy和mysqldump相同的地方都是在线执行 LOCK TABLES 以及 UNLOCK TABLES<br>mysqlhotcopy是一个快速文件意义上的COPY，mysqldump是一个mysql数据库端的SQL语句集合。<br>mysqlhotcopy恢复只需要COPY备份文件到源目录覆盖即可，mysqldump需要导入SQL文件到原库中，并且可能产生很多导入出错的情况。<br>mysqlhotcopy只能运行在数据库目录所在的机器上，mysqldump可以用在远程客户端，不过备份的文件还是保存在数据库服务器上。<br>mysqlhotcopy在使用前必须安装perl-DBD-mysql包,而mysqldump则不需要。</p>
+<a id="more"></a>
 <p>使用mysqlhotcopy之前需要安装perl-DBI和DBD-mysql：<br><strong>1：安装perl-DBI</strong><br>yum -y install perl-DBI<br>#（如果不行则执行yum -y install perl perl-DBI）</p>
 <p><strong>2：安装DBD-mysql</strong> （如果编译出错请看最后面）<br>wget <a href="http://www.fcbu.com/upimages/soft/DBD-mysql-4.020.tar.gz" target="_blank" rel="external">http://www.fcbu.com/upimages/soft/DBD-mysql-4.020.tar.gz</a><br>tar xzvf DBD-mysql-4.020.tar.gz<br>cd DBD-mysql-4.020<br>perl Makefile.PL –mysql_config=/usr/local/mysql/bin/mysql_config<br>make<br>make install</p>
 <p>如果你的mysql不是安装在/usr/local/mysql/目录，mysql_config的路径请按照你自己的填写。<br>DBD-mysql的官网可以找到最新的版 <a href="http://www.cpan.org/modules/by-module/DBD/（目前最新的为DBD-mysql-4.020）" target="_blank" rel="external">http://www.cpan.org/modules/by-module/DBD/（目前最新的为DBD-mysql-4.020）</a><br>转载请注明来源：<a href="http://linux.fcbu.com/mysqlhotcopy.htm" target="_blank" rel="external">http://linux.fcbu.com/mysqlhotcopy.htm</a><br>一个常用的备份例子：</p>
@@ -265,7 +273,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;mysqlhotcopy是使用LOCK TABLES、FLUSH TABLES和cp或scp来快速备份数据库，mysqlhotcopy是由Tim Bunce用Perl脚本编写的。它是备份数据库或单个表的最快的途径，但它不能远程运行只能运行在数据库目录所在的机器上。注意：my
+      &lt;p&gt;mysqlhotcopy是使用LOCK TABLES、FLUSH TABLES和cp或scp来快速备份数据库，mysqlhotcopy是由Tim Bunce用Perl脚本编写的。它是备份数据库或单个表的最快的途径，但它不能远程运行只能运行在数据库目录所在的机器上。注意：mysqlhotcopy只用于备份MyISAM。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;mysqlhotcopy与mysql自带的mysqldump异同比较：&lt;/strong&gt;&lt;br&gt;mysqlhotcopy只适用于 MyISAM 引擎，而后则则可同时使用于MyISAM引擎和InodDB引擎.&lt;br&gt;mysqlhotcopy和mysqldump相同的地方都是在线执行 LOCK TABLES 以及 UNLOCK TABLES&lt;br&gt;mysqlhotcopy是一个快速文件意义上的COPY，mysqldump是一个mysql数据库端的SQL语句集合。&lt;br&gt;mysqlhotcopy恢复只需要COPY备份文件到源目录覆盖即可，mysqldump需要导入SQL文件到原库中，并且可能产生很多导入出错的情况。&lt;br&gt;mysqlhotcopy只能运行在数据库目录所在的机器上，mysqldump可以用在远程客户端，不过备份的文件还是保存在数据库服务器上。&lt;br&gt;mysqlhotcopy在使用前必须安装perl-DBD-mysql包,而mysqldump则不需要。&lt;/p&gt;
     
     </summary>
     
@@ -281,7 +290,7 @@
     <link href="http://notes.huhao.me/2017/linux%20%E4%B8%8B%20apache%E5%90%AF%E5%8A%A8%E3%80%81%E5%81%9C%E6%AD%A2%E3%80%81%E9%87%8D%E5%90%AF%E5%91%BD%E4%BB%A4.html"/>
     <id>http://notes.huhao.me/2017/linux 下 apache启动、停止、重启命令.html</id>
     <published>2017-03-20T15:47:00.000Z</published>
-    <updated>2017-03-20T15:47:54.938Z</updated>
+    <updated>2017-03-20T16:10:45.257Z</updated>
     
     <content type="html"><![CDATA[<p>基本的操作方法：</p>
 <p>本文假设你的apahce安装目录为/usr/local/apache2，这些方法适合任何情况</p>
@@ -291,6 +300,7 @@
 <p>/usr/local/apache2/bin/apachectl stop   停止</p>
 <p>apache重新启动命令：</p>
 <p>/usr/local/apache2/bin/apachectl restart 重启</p>
+<a id="more"></a>
 <p>要在重启 Apache 服务器时不中断当前的连接，则应运行：</p>
 <p>/usr/local/sbin/apachectl graceful</p>
 <p>如果apache安装成为linux的服务的话，可以用以下命令操作：</p>
@@ -402,7 +412,11 @@
       &lt;p&gt;基本的操作方法：&lt;/p&gt;
 &lt;p&gt;本文假设你的apahce安装目录为/usr/local/apache2，这些方法适合任何情况&lt;/p&gt;
 &lt;p&gt;apahce启动命令：&lt;/p&gt;
-&lt;p&gt;推荐/usr/local/apache2/bin/apachectl start apaceh启
+&lt;p&gt;推荐/usr/local/apache2/bin/apachectl start apaceh启动&lt;/p&gt;
+&lt;p&gt;apache停止命令&lt;/p&gt;
+&lt;p&gt;/usr/local/apache2/bin/apachectl stop   停止&lt;/p&gt;
+&lt;p&gt;apache重新启动命令：&lt;/p&gt;
+&lt;p&gt;/usr/local/apache2/bin/apachectl restart 重启&lt;/p&gt;
     
     </summary>
     
@@ -420,7 +434,7 @@
     <link href="http://notes.huhao.me/2017/%E9%87%8D%E5%90%AFmysql%E6%8F%90%E7%A4%BAMySQL-server-PID-file-could-not-be-found!.html"/>
     <id>http://notes.huhao.me/2017/重启mysql提示MySQL-server-PID-file-could-not-be-found!.html</id>
     <published>2017-03-20T14:58:39.000Z</published>
-    <updated>2017-03-20T16:03:30.501Z</updated>
+    <updated>2017-03-20T16:11:21.001Z</updated>
     
     <content type="html"><![CDATA[<p>重启mysql提示MySQL server PID file could not be found!</p>
 <p>Starting MySQL…The server quit without updating PID file (/usr/local/mysql/data/rekfan.pid).</p>
@@ -430,6 +444,7 @@
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kill -9 进程号</div></pre></td></tr></table></figure>
 <p>你要是没解决？好吧，继续：</p>
 <p><strong>（解决方法：一个个试！）</strong></p>
+<a id="more"></a>
 <p>1.可能是/usr/local/mysql/data/rekfan.pid文件没有写的权限</p>
 <p>解决方法 ：给予权限，执行 “chown -R mysql:mysql /var/data” “chmod -R 755 /usr/local/mysql/data”  然后重新启动mysqld！</p>
 <p>2.可能进程里已经存在mysql进程</p>
@@ -449,7 +464,13 @@
     <summary type="html">
     
       &lt;p&gt;重启mysql提示MySQL server PID file could not be found!&lt;/p&gt;
-&lt;p&gt;Starting MySQL…The server quit without updating PID file (/usr/local/mysql/data
+&lt;p&gt;Starting MySQL…The server quit without updating PID file (/usr/local/mysql/data/rekfan.pid).&lt;/p&gt;
+&lt;p&gt;我只能呵呵了吗？不是。&lt;/p&gt;
+&lt;p&gt;我是这样做的，先看下是不是有这个进程，然后结束，再重启，代码：&lt;/p&gt;
+ &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;ps -ef|grep mysqld&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+ &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;kill -9 进程号&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;你要是没解决？好吧，继续：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;（解决方法：一个个试！）&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
@@ -465,11 +486,12 @@
     <link href="http://notes.huhao.me/2017/Linux%20Crontab%20%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E.html"/>
     <id>http://notes.huhao.me/2017/Linux Crontab 安装使用详细说明.html</id>
     <published>2017-03-19T16:02:00.000Z</published>
-    <updated>2017-03-20T16:02:28.598Z</updated>
+    <updated>2017-03-20T16:11:47.253Z</updated>
     
     <content type="html"><![CDATA[<p><strong>crontab</strong>命令常见于Unix和Linux的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中，以供之后读取和执行。通常，crontab储存的指令被守护进程激活。crond 常常在后台运行，每一分钟检查是否有预定的作业需要执行。这类作业一般称为cron jobs。</p>
 <p><strong>一、安装</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum -y install vixie-cron</div><div class="line">yum -y install crontabs</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>说明：<br>vixie-cron 软件包是 cron 的主程序；<br>crontabs 软件包是用来安装、卸装、或列举用来驱动 cron 守护进程的表格的程序。</p>
 <p><strong>二、配置</strong></p>
 <p>cron 是 linux 的内置服务，但它不自动起来，可以用以下的方法启动、关闭这个服务：</p>
@@ -481,7 +503,9 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;strong&gt;crontab&lt;/strong&gt;命令常见于Unix和Linux的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中，以供之后读取和执行。通常，crontab储存的指令被守护进程激活。crond 常常在
+      &lt;p&gt;&lt;strong&gt;crontab&lt;/strong&gt;命令常见于Unix和Linux的操作系统之中，用于设置周期性被执行的指令。该命令从标准输入设备读取指令，并将其存放于“crontab”文件中，以供之后读取和执行。通常，crontab储存的指令被守护进程激活。crond 常常在后台运行，每一分钟检查是否有预定的作业需要执行。这类作业一般称为cron jobs。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;一、安装&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;yum -y install vixie-cron&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;yum -y install crontabs&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -497,12 +521,13 @@
     <link href="http://notes.huhao.me/2017/mysqlhotcopy%E6%8F%90%E7%A4%BACant-locate-DBI.pm-in-@INC-mysql%E6%8E%A5%E5%8F%A3.html"/>
     <id>http://notes.huhao.me/2017/mysqlhotcopy提示Cant-locate-DBI.pm-in-@INC-mysql接口.html</id>
     <published>2017-03-19T16:00:00.000Z</published>
-    <updated>2017-03-20T16:00:56.003Z</updated>
+    <updated>2017-03-20T16:12:08.184Z</updated>
     
     <content type="html"><![CDATA[<p>运行mysqlhotcopy时提示如下错误</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Can&apos;t locate DBI.pm in @INC (@INC contains: /usr/lib64/perl5/site_perl/5.8.8/x86_64-linux-thread-multi </div><div class="line">/usr/lib/perl5/site_perl/5.8.8 /usr/lib/perl5/site_perl /usr/lib64/perl5/vendor_perl/5.8.8/x86_64-linux-thread-multi </div><div class="line">/usr/lib/perl5/vendor_perl/5.8.8 </div><div class="line">/usr/lib/perl5/vendor_perl</div><div class="line"> /usr/lib64/perl5/5.8.8/x86_64-linux-thread-multi /usr/lib/perl5/5.8.8 .) at /usr/local/webserver/mysql5.1.57/bin/mysqlhotcopy line 25.</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">BEGIN failed--compilation aborted at /usr/local/webserver/mysql5.1.57/bin/mysqlhotcopy line 25.</div></pre></td></tr></table></figure>
 <p>在使用mysqlhotcopy 时提示 以上错误。</p>
+<a id="more"></a>
 <p>DBI(Database Interface)是perl连接数据库的接口。其是perl连接数据库的最优秀方法，他支持包括Orcal,Sybase,mysql,db2等绝大多数的数据库。</p>
 <p>安装 dbi</p>
 <p>检查dbi</p>
@@ -515,7 +540,9 @@
     <summary type="html">
     
       &lt;p&gt;运行mysqlhotcopy时提示如下错误&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Can&amp;apos;t locate DBI.pm in @INC (@INC contains: /usr/lib64/perl5/site_perl/5.8.8/x86_64-linux-thread-multi &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;/usr/lib/perl5/site_perl/5.8.8 /usr/lib/perl5/site_perl /usr/lib64/perl5/vendor_perl/5.8.8/x86_64-linux-thread-multi &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;/usr/lib/perl5/vendor_perl/5.8.8 &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;/usr/lib/perl5/vendor_perl&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; /usr/lib64/perl5/5.8.8/x86_64-linux-thread-multi /usr/lib/perl5/5.8.8 .) at /usr/local/webserver/mysql5.1.57/bin/mysqlhotcopy line 25.&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;BEGIN failed--compilation aborted at /usr/local/webserver/mysql5.1.57/bin/mysqlhotcopy line 25.&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在使用mysqlhotcopy 时提示 以上错误。&lt;/p&gt;
     
     </summary>
     
@@ -888,9 +915,9 @@
       <category term="Essay" scheme="http://notes.huhao.me/categories/Essay/"/>
     
     
-      <category term="Essay" scheme="http://notes.huhao.me/tags/Essay/"/>
-    
       <category term="Git" scheme="http://notes.huhao.me/tags/Git/"/>
+    
+      <category term="Essay" scheme="http://notes.huhao.me/tags/Essay/"/>
     
   </entry>
   
@@ -981,9 +1008,9 @@
       <category term="Liunx" scheme="http://notes.huhao.me/categories/Liunx/"/>
     
     
-      <category term="Git" scheme="http://notes.huhao.me/tags/Git/"/>
-    
       <category term="Liunx" scheme="http://notes.huhao.me/tags/Liunx/"/>
+    
+      <category term="Git" scheme="http://notes.huhao.me/tags/Git/"/>
     
       <category term="CentOS" scheme="http://notes.huhao.me/tags/CentOS/"/>
     
@@ -1511,9 +1538,9 @@
       <category term="HTML5" scheme="http://notes.huhao.me/categories/HTML5/"/>
     
     
-      <category term="HTML5" scheme="http://notes.huhao.me/tags/HTML5/"/>
-    
       <category term="CSS3" scheme="http://notes.huhao.me/tags/CSS3/"/>
+    
+      <category term="HTML5" scheme="http://notes.huhao.me/tags/HTML5/"/>
     
       <category term="JavaScript" scheme="http://notes.huhao.me/tags/JavaScript/"/>
     
