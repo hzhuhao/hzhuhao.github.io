@@ -125,6 +125,36 @@
   </entry>
   
   <entry>
+    <title>JQ图片遮罩层111</title>
+    <link href="http://notes.huhao.me/2017/JQ%E5%9B%BE%E7%89%87%E9%81%AE%E7%BD%A9%E5%B1%8211.html"/>
+    <id>http://notes.huhao.me/2017/JQ图片遮罩层11.html</id>
+    <published>2017-03-20T15:56:00.000Z</published>
+    <updated>2017-03-22T04:56:18.707Z</updated>
+    
+    <content type="html"><![CDATA[<p>图片的定位relative，</p>
+<p>遮罩层定位position</p>
+<p>先将位置放置好</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$(function () &#123; </div><div class="line">      $(&quot;.g-moon&quot;).css(&quot;opacity&quot;, &quot;0&quot;); </div><div class="line">      $(&quot;.g-moon&quot;).hover(function () &#123;</div><div class="line">      $(this).stop().animate(&#123; opacity: .8 &#125;, &quot;slow&quot;);</div><div class="line">      &#125;, function () &#123;</div><div class="line">      $(this).stop().animate(&#123; opacity: 0 &#125;, &quot;slow&quot;);</div><div class="line">    &#125;);</div><div class="line"> &#125;);</div></pre></td></tr></table></figure>
+<p>.g-moon为遮罩层的class</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;图片的定位relative，&lt;/p&gt;
+&lt;p&gt;遮罩层定位position&lt;/p&gt;
+&lt;p&gt;先将位置放置好&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;lin
+    
+    </summary>
+    
+      <category term="JAVASCRIPT" scheme="http://notes.huhao.me/categories/JAVASCRIPT/"/>
+    
+    
+      <category term="javascript" scheme="http://notes.huhao.me/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JQ图片遮罩层</title>
     <link href="http://notes.huhao.me/2017/JQ%E5%9B%BE%E7%89%87%E9%81%AE%E7%BD%A9%E5%B1%82.html"/>
     <id>http://notes.huhao.me/2017/JQ图片遮罩层.html</id>
