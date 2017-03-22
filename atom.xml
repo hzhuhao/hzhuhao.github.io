@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://notes.huhao.me/"/>
-  <updated>2017-03-20T16:45:53.139Z</updated>
+  <updated>2017-03-20T16:54:04.056Z</updated>
   <id>http://notes.huhao.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://notes.huhao.me/2017/window.open%E5%AD%90%E7%AA%97%E5%8F%A3%E7%BB%99%E7%88%B6%E7%AA%97%E5%8F%A3%E4%BC%A0%E5%80%BC.html"/>
     <id>http://notes.huhao.me/2017/window.open子窗口给父窗口传值.html</id>
     <published>2017-03-20T16:19:00.000Z</published>
-    <updated>2017-03-20T16:45:53.139Z</updated>
+    <updated>2017-03-20T16:54:04.056Z</updated>
     
     <content type="html"><![CDATA[<h2 id="一、子页面是父页面通过window-open弹出的情况"><a href="#一、子页面是父页面通过window-open弹出的情况" class="headerlink" title="一、子页面是父页面通过window.open弹出的情况"></a>一、子页面是父页面通过window.open弹出的情况</h2><p>子页面要向父页面传值，只要在document前面加window.opener即可。</p>
 <h3 id="定义和用法"><a href="#定义和用法" class="headerlink" title="定义和用法"></a>定义和用法</h3><p>open() 方法用于打开一个新的浏览器窗口或查找一个已命名的窗口。</p>
@@ -1072,36 +1072,6 @@
   </entry>
   
   <entry>
-    <title>linux系统之间互传文件</title>
-    <link href="http://notes.huhao.me/2017/linux%E7%B3%BB%E7%BB%9F%E4%B9%8B%E9%97%B4%E4%BA%92%E4%BC%A0%E6%96%87%E4%BB%B6.html"/>
-    <id>http://notes.huhao.me/2017/linux系统之间互传文件.html</id>
-    <published>2017-03-15T02:58:00.000Z</published>
-    <updated>2017-03-20T15:43:05.053Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-文件复制：本机-gt-远程服务器"><a href="#1-文件复制：本机-gt-远程服务器" class="headerlink" title="1.文件复制：本机-&gt;远程服务器"></a>1.文件复制：本机-&gt;远程服务器</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp /home/root/test1.txt shaoxiaohu@172.16.18.1:/home/test2.txt</div></pre></td></tr></table></figure>
-<p>其中，test1为源文件，test2为目标文件，root@172.16.18.1为远程服务器的用户名和ip地址。</p>
-<h2 id="2-文件复制：远程服务器-gt-本机"><a href="#2-文件复制：远程服务器-gt-本机" class="headerlink" title="2.文件复制：远程服务器-&gt;本机"></a>2.文件复制：远程服务器-&gt;本机</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp root@172.16.18.2:/home/test2.txt /home/root/test1.txt</div></pre></td></tr></table></figure>
-<p>其中，root@172.16.18.2为远程服务器的用户名和ip地址， test2为源文件，test1为目标路径</p>
-<h2 id="3-文件夹复制"><a href="#3-文件夹复制" class="headerlink" title="3.文件夹复制"></a>3.文件夹复制</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在scp命令后加“-r”参数即可。</div></pre></td></tr></table></figure>
-<h2 id="4-端口号"><a href="#4-端口号" class="headerlink" title="4. 端口号"></a>4. 端口号</h2><p>如果端口号有更改，需在scp 后输入：-P 端口号 （注意是大写，ssh的命令中 -p是小写）。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-文件复制：本机-gt-远程服务器&quot;&gt;&lt;a href=&quot;#1-文件复制：本机-gt-远程服务器&quot; class=&quot;headerlink&quot; title=&quot;1.文件复制：本机-&amp;gt;远程服务器&quot;&gt;&lt;/a&gt;1.文件复制：本机-&amp;gt;远程服务器&lt;/h2&gt; &lt;figur
-    
-    </summary>
-    
-      <category term="Liunx" scheme="http://notes.huhao.me/categories/Liunx/"/>
-    
-    
-      <category term="Liunx" scheme="http://notes.huhao.me/tags/Liunx/"/>
-    
-      <category term="CentOS" scheme="http://notes.huhao.me/tags/CentOS/"/>
-    
-  </entry>
-  
-  <entry>
     <title>CentOS7 搭建Git服务器</title>
     <link href="http://notes.huhao.me/2017/CentOS7%20%E6%90%AD%E5%BB%BAGit%E6%9C%8D%E5%8A%A1%E5%99%A8.html"/>
     <id>http://notes.huhao.me/2017/CentOS7 搭建Git服务器.html</id>
@@ -1150,6 +1120,36 @@
       <category term="Liunx" scheme="http://notes.huhao.me/tags/Liunx/"/>
     
       <category term="Git" scheme="http://notes.huhao.me/tags/Git/"/>
+    
+      <category term="CentOS" scheme="http://notes.huhao.me/tags/CentOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux系统之间互传文件</title>
+    <link href="http://notes.huhao.me/2017/linux%E7%B3%BB%E7%BB%9F%E4%B9%8B%E9%97%B4%E4%BA%92%E4%BC%A0%E6%96%87%E4%BB%B6.html"/>
+    <id>http://notes.huhao.me/2017/linux系统之间互传文件.html</id>
+    <published>2017-03-15T02:58:00.000Z</published>
+    <updated>2017-03-20T15:43:05.053Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-文件复制：本机-gt-远程服务器"><a href="#1-文件复制：本机-gt-远程服务器" class="headerlink" title="1.文件复制：本机-&gt;远程服务器"></a>1.文件复制：本机-&gt;远程服务器</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp /home/root/test1.txt shaoxiaohu@172.16.18.1:/home/test2.txt</div></pre></td></tr></table></figure>
+<p>其中，test1为源文件，test2为目标文件，root@172.16.18.1为远程服务器的用户名和ip地址。</p>
+<h2 id="2-文件复制：远程服务器-gt-本机"><a href="#2-文件复制：远程服务器-gt-本机" class="headerlink" title="2.文件复制：远程服务器-&gt;本机"></a>2.文件复制：远程服务器-&gt;本机</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp root@172.16.18.2:/home/test2.txt /home/root/test1.txt</div></pre></td></tr></table></figure>
+<p>其中，root@172.16.18.2为远程服务器的用户名和ip地址， test2为源文件，test1为目标路径</p>
+<h2 id="3-文件夹复制"><a href="#3-文件夹复制" class="headerlink" title="3.文件夹复制"></a>3.文件夹复制</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在scp命令后加“-r”参数即可。</div></pre></td></tr></table></figure>
+<h2 id="4-端口号"><a href="#4-端口号" class="headerlink" title="4. 端口号"></a>4. 端口号</h2><p>如果端口号有更改，需在scp 后输入：-P 端口号 （注意是大写，ssh的命令中 -p是小写）。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-文件复制：本机-gt-远程服务器&quot;&gt;&lt;a href=&quot;#1-文件复制：本机-gt-远程服务器&quot; class=&quot;headerlink&quot; title=&quot;1.文件复制：本机-&amp;gt;远程服务器&quot;&gt;&lt;/a&gt;1.文件复制：本机-&amp;gt;远程服务器&lt;/h2&gt; &lt;figur
+    
+    </summary>
+    
+      <category term="Liunx" scheme="http://notes.huhao.me/categories/Liunx/"/>
+    
+    
+      <category term="Liunx" scheme="http://notes.huhao.me/tags/Liunx/"/>
     
       <category term="CentOS" scheme="http://notes.huhao.me/tags/CentOS/"/>
     
