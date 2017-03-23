@@ -1,4 +1,1040 @@
-<!doctype html><html class="theme-next pisces use-motion" lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"><link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css"><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css"><link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css"><meta name="keywords" content="JQuery,"><link rel="alternate" href="/atom.xml" title="HuHao's Notes" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0"><meta name="description" content="My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。常规的调用比较简单，如下所示：1&amp;lt;input class=&amp;quot;Wdate&amp;quot; id=&amp;quot;d1&amp;quot; onclick=&amp;quot;WdatePicker()&amp;quot; /&amp;gt;
-下面重点说明日期范围限制：1）静态限制你可以给通过配置minDate(最小日期),max"><meta property="og:type" content="article"><meta property="og:title" content="JQuery日历插件My97DatePicker日期范围限制"><meta property="og:url" content="http://notes.huhao.me/2017/JQuery日历插件My97DatePicker日期范围限制.html"><meta property="og:site_name" content="HuHao's Notes"><meta property="og:description" content="My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。常规的调用比较简单，如下所示：1&amp;lt;input class=&amp;quot;Wdate&amp;quot; id=&amp;quot;d1&amp;quot; onclick=&amp;quot;WdatePicker()&amp;quot; /&amp;gt;
-下面重点说明日期范围限制：1）静态限制你可以给通过配置minDate(最小日期),max"><meta property="og:updated_time" content="2017-03-22T07:53:23.624Z"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="JQuery日历插件My97DatePicker日期范围限制"><meta name="twitter:description" content="My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。常规的调用比较简单，如下所示：1&amp;lt;input class=&amp;quot;Wdate&amp;quot; id=&amp;quot;d1&amp;quot; onclick=&amp;quot;WdatePicker()&amp;quot; /&amp;gt;
-下面重点说明日期范围限制：1）静态限制你可以给通过配置minDate(最小日期),max"><script type="text/javascript" id="hexo.configurations">var NexT=window.NexT||{},CONFIG={root:"/",scheme:"Pisces",sidebar:{position:"left",display:"post",offset:12,offset_float:0,b2t:!1,scrollpercent:!1},fancybox:!0,motion:!0,duoshuo:{userId:"6243258257998087000",author:"仄言"},algolia:{applicationID:"P3JTR5U5SY",apiKey:"b3b5707bbfa4848e45d035350c647f4d",indexName:"noteIndex",hits:{per_page:10},labels:{input_placeholder:"Search for Posts",hits_empty:"We didn't find any results for the search: ${query}",hits_stats:"${hits} results found in ${time} ms"}}}</script><link rel="canonical" href="http://notes.huhao.me/2017/JQuery日历插件My97DatePicker日期范围限制.html"><title> JQuery日历插件My97DatePicker日期范围限制 | HuHao's Notes</title></head><body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans"><div class="container one-collumn sidebar-position-left page-post-detail"><div class="headband"></div><header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="header-inner"><div class="site-brand-wrapper"><div class="site-meta"><div class="custom-logo-site-title"><a href="/" class="brand" rel="start"><span class="logo-line-before"><i></i></span> <span class="site-title">HuHao's Notes</span><span class="logo-line-after"><i></i></span></a></div><h1 class="site-subtitle" itemprop="description">Quick notes</h1></div><div class="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div></div><nav class="site-nav"><ul id="menu" class="menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i><br> 首页</a></li><li class="menu-item menu-item-archives"><a href="/archives" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i><br> 归档</a></li><li class="menu-item menu-item-tags"><a href="/tags" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i><br> 标签</a></li><li class="menu-item menu-item-about"><a href="/about" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i><br> 关于</a></li><li class="menu-item menu-item-search"><a href="javascript:;" class="popup-trigger"><i class="menu-item-icon fa fa-search fa-fw"></i><br> 搜索</a></li></ul><div class="site-search"><div class="algolia-popup popup search-popup"><div class="algolia-search"><div class="algolia-search-input-icon"><i class="fa fa-search"></i></div><div class="algolia-search-input" id="algolia-search-input"></div></div><div class="algolia-results"><div id="algolia-stats"></div><div id="algolia-hits"></div><div id="algolia-pagination" class="algolia-pagination"></div></div><span class="popup-btn-close"><i class="fa fa-times-circle"></i></span></div></div></nav></div></header><main id="main" class="main"><div class="main-inner"><div class="content-wrap"><div id="content" class="content"><div id="posts" class="posts-expand"><article class="post post-type-normal" itemscope itemtype="http://schema.org/Article"><link itemprop="mainEntityOfPage" href="http://notes.huhao.me/2017/JQuery日历插件My97DatePicker日期范围限制.html"><span hidden itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="HuHao"><meta itemprop="description" content=""><meta itemprop="image" content="/images/avatar.gif"></span><span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization"><meta itemprop="name" content="HuHao's Notes"></span><header class="post-header"><h2 class="post-title" itemprop="name headline"> JQuery日历插件My97DatePicker日期范围限制</h2><div class="post-meta"><span class="post-time"><span class="post-meta-item-icon"><i class="fa fa-calendar-o"></i></span> <span class="post-meta-item-text">发表于</span> <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T12:00:00+08:00">2017-03-22</time></span> <span class="post-category"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-folder-o"></i></span> <span class="post-meta-item-text">分类于</span> <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JQuery/" itemprop="url" rel="index"><span itemprop="name">JQuery</span></a></span></span> <span class="post-comments-count"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-comment-o"></i></span><a href="/2017/JQuery日历插件My97DatePicker日期范围限制.html#comments" itemprop="discussionUrl"><span class="post-comments-count ds-thread-count" data-thread-key="2017/JQuery日历插件My97DatePicker日期范围限制.html" itemprop="commentCount"></span></a></span> <span id="/2017/JQuery日历插件My97DatePicker日期范围限制.html" class="leancloud_visitors" data-flag-title="JQuery日历插件My97DatePicker日期范围限制"><span class="post-meta-divider">|</span><span class="post-meta-item-icon"><i class="fa fa-eye"></i></span> <span class="post-meta-item-text">阅读次数</span><span class="leancloud-visitors-count"></span></span></div></header><div class="post-body" itemprop="articleBody"><h2 id="My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。"><a href="#My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。" class="headerlink" title="My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。"></a>My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。</h2><p>常规的调用比较简单，如下所示：<br></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input class=&quot;Wdate&quot; id=&quot;d1&quot; onclick=&quot;WdatePicker()&quot; /&gt;</div></pre></td></tr></table></figure><p></p><h3 id="下面重点说明日期范围限制："><a href="#下面重点说明日期范围限制：" class="headerlink" title="下面重点说明日期范围限制："></a>下面重点说明日期范围限制：</h3><h4 id="1）静态限制"><a href="#1）静态限制" class="headerlink" title="1）静态限制"></a>1）静态限制</h4><p>你可以给通过配置minDate(最小日期),maxDate(最大日期)为静态日期值,来限定日期的范围</p><p>示例1.1：限制日期的范围是 2017-03-01到2017-12-20</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input class=&quot;Wdate&quot; id=&quot;d2&quot; onfocus=&quot;WdatePicker(&#123;skin:&apos;whyGreen&apos;,minDate:&apos;2017-03-01&apos;,maxDate:&apos;2017-12-20&apos;&#125;)&quot; /&gt;</div></pre></td></tr></table></figure><p>示例1.2：限制日期的范围是 2017-03-01 21:30:00 到 2017-12-4 23:59:30</p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;text&quot; id=&quot;d3&quot; class=&quot;Wdate&quot; onfocus=&quot;WdatePicker(&#123;skin:&apos;whyGreen&apos;,dateFmt:&apos;yyyy-MM-dd HH:mm:ss&apos;,minDate:&apos;2017-03-01 21:30:00&apos;,maxDate:&apos;2017-12-4 23:59:30&apos;&#125;)&quot; value=&apos;2017-12-4 23:59:30&apos;/&gt;</div></pre></td></tr></table></figure><p>示例1.3：限制日期的范围是 2017年03月 到 2017年12月</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;text&quot; class=&quot;Wdate&quot; id=&quot;d4&quot; onfocus=&quot;WdatePicker(&#123;dateFmt:&apos;yyyy年M月&apos;,minDate:&apos;2017-03&apos;,maxDate:&apos;2017-12&apos;&#125;)&quot;/&gt;</div></pre></td></tr></table></figure><p>示例1.4：限制时间的范围是 9:00:00 到 18:30:00</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input class=&quot;Wdate&quot; id=&quot;d5&quot; onfocus=&quot;WdatePicker(&#123;dateFmt:&apos;H:mm:ss&apos;,minDate:&apos;9:00:00&apos;,maxDate:&apos;18:30:00&apos;&#125;)&quot; /&gt;</div></pre></td></tr></table></figure><h4 id="2）动态限制"><a href="#2）动态限制" class="headerlink" title="2）动态限制"></a>2）动态限制</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">你可以通过系统给出的动态变量,</div><div class="line">%y(当前年),</div><div class="line">%M(当前月)等来限度日期范围,</div><div class="line">你还可以通过&#123;&#125;进行表达式运算,</div><div class="line">如:&#123;%d+1&#125;:表示明天</div></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">| 格式   | 说明                  |</div><div class="line">| ---- | ------------------- |</div><div class="line">| %y   | 当前年                 |</div><div class="line">| %M   | 当前月                 |</div><div class="line">| %d   | 当前日                 |</div><div class="line">| %ld  | 本月最后一天              |</div><div class="line">| %H   | 当前时                 |</div><div class="line">| %m   | 当前分                 |</div><div class="line">| %s   | 当前秒                 |</div><div class="line">| &#123;&#125;   | 运算表达式,如:&#123;%d+1&#125;:表示明天 |</div><div class="line">| #F&#123;&#125; | &#123;&#125;之间是函数可写自定义JS代码    |</div></pre></td></tr></table></figure><p>示例2.1：只能选择今天以前的日期(包括今天)</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d421&quot; class=&quot;Wdate&quot; type=&quot;text&quot;   onfocus=&quot;WdatePicker(&#123;skin:&apos;whyGreen&apos;,maxDate:&apos;%y-%M-%d&apos;&#125;)&quot;/&gt;</div></pre></td></tr></table></figure><p>示例2.2：使用了运算表达式 只能选择今天以后的日期(不包括今天)</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d422&quot; class=&quot;Wdate&quot; type=&quot;text&quot; onfocus=&quot;WdatePicker(&#123;minDate:&apos;%y-%M-&#123;%d+1&#125;&apos;&#125;)&quot;/&gt;</div></pre></td></tr></table></figure><p>示例2.3：只能选择本月的日期1号至本月最后一天</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d423&quot; class=&quot;Wdate&quot; type=&quot;text&quot; onfocus=&quot;WdatePicker(&#123;minDate:&apos;%y-%M-01&apos;,maxDate:&apos;%y-%M-%ld&apos;&#125;)&quot;/&gt;</div></pre></td></tr></table></figure><p>示例2.4：只能选择今天7:00:00至明天21:00:00的日期</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d424&quot; class=&quot;Wdate&quot; type=&quot;text&quot; onfocus=&quot;WdatePicker(&#123;dateFmt:&apos;yyyy-M-d H:mm:ss&apos;,minDate:&apos;%y-%M-%d 7:00:00&apos;,maxDate:&apos;%y-%M-&#123;%d+1&#125; 21:00:00&apos;&#125;)&quot;/&gt;</div></pre></td></tr></table></figure><p>示例2.5：使用了运算表达式 只能选择 20小时前 至 30小时后 的日期</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d425&quot; class=&quot;Wdate&quot; type=&quot;text&quot; onClick=&quot;WdatePicker(&#123;dateFmt:&apos;yyyy-MM-dd HH:mm&apos;,minDate:&apos;%y-%M-%d &#123;%H-20&#125;:%m:%s&apos;,maxDate:&apos;%y-%M-%d &#123;%H+30&#125;:%m:%s&apos;&#125;)&quot;/&gt;</div></pre></td></tr></table></figure><h4 id="3）脚本自定义限制"><a href="#3）脚本自定义限制" class="headerlink" title="3）脚本自定义限制"></a>3）脚本自定义限制</h4><p>系统提供了$dp.$D和$dp.$DV这两个API来辅助你进行日期运算,此外你还可以通过在 #F{} 中填入你自定义的脚本,做任何你想做的日期限制</p><p>示例3.1： 前面的日期不能大于后面的日期且两个日期都不能大于 2020-10-01</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d4311&quot; class=&quot;Wdate&quot; type=&quot;text&quot; onFocus=&quot;WdatePicker(&#123;maxDate:&apos;#F&#123;$dp.$D(\&apos;d4312\&apos;)||\&apos;2020-10-01\&apos;&#125;&apos;&#125;)&quot;/&gt;</div><div class="line">&lt;input id=&quot;d4312&quot; class=&quot;Wdate&quot; type=&quot;text&quot; onFocus=&quot;WdatePicker(&#123;minDate:&apos;#F&#123;$dp.$D(\&apos;d4311\&apos;)&#125;&apos;,maxDate:&apos;2020-10-01&apos;&#125;)&quot;/&gt;</div></pre></td></tr></table></figure><p>示例3.2：前面的日期+3天 不能大于 后面的日期</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;text&quot; class=&quot;Wdate&quot; id=&quot;d4321&quot; onFocus=&quot;WdatePicker(&#123;maxDate:&apos;#F&#123;$dp.$D(\&apos;d4322\&apos;,&#123;d:-3&#125;);&#125;&apos;&#125;)&quot;/&gt;</div><div class="line">&lt;input   type=&quot;text&quot; class=&quot;Wdate&quot; id=&quot;d4322&quot; onFocus=&quot;WdatePicker(&#123;minDate:&apos;#F&#123;$dp.$D(\&apos;d4321\&apos;,&#123;d:3&#125;);&#125;&apos;&#125;)&quot;/&gt;</div></pre></td></tr></table></figure><p>示例3.3：前面的日期+3月零2天 不能大于 后面的日期 且 前面日期都不能大于 2020-4-3减去3月零2天 后面日期 不能大于 2020-4-3</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;text&quot; class=&quot;Wdate&quot; id=&quot;d4331&quot; onFocus=&quot;WdatePicker(&#123;maxDate:&apos;#F&#123;$dp.$D(\&apos;d4332\&apos;,&#123;M:-3,d:-2&#125;)||$dp.$DV(\&apos;2020-4-3\&apos;,&#123;M:-3,d:-2&#125;)&#125;&apos;&#125;)&quot;/&gt;</div><div class="line">&lt;input type=&quot;text&quot; class=&quot;Wdate&quot; id=&quot;d4332&quot; onFocus=&quot;WdatePicker(&#123;minDate:&apos;#F&#123;$dp.$D(\&apos;d4331\&apos;,&#123;M:3,d:2&#125;);&#125;&apos;,maxDate:&apos;2020-4-3&apos;&#125;)&quot;/&gt;</div></pre></td></tr></table></figure><p>示例3.4：发挥你的JS才能,定义任何你想要的日期限制</p><p>自动转到随机生成的一天,当然,此示例没有实际的用途,只是为演示目的</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">//返回一个随机的日期</div><div class="line">function randomDate()&#123;</div><div class="line">	var Y = 2000 + Math.round(Math.random() * 10);</div><div class="line">	var M = 1 + Math.round(Math.random() * 11);</div><div class="line">	var D = 1 + Math.round(Math.random() * 27);</div><div class="line">	return Y+&apos;-&apos;+M+&apos;-&apos;+D;</div><div class="line">	&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;input type=&quot;text&quot; class=&quot;Wdate&quot; id=&quot;d434&quot; onFocus=&quot;var date=randomDate();WdatePicker(&#123;minDate:date,maxDate:date&#125;)&quot;/&gt;</div></pre></td></tr></table></figure><h4 id="4）无效天限制"><a href="#4）无效天限制" class="headerlink" title="4）无效天限制"></a>4）无效天限制</h4><p>可以使用此功能禁用周日至周六所对应的日期,相关属性:disabledDays (0至6 分别代表周日至周六)</p><p>示例4.1：禁用 周六 所对应的日期</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d441&quot; type=&quot;text&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;disabledDays:[6]&#125;)&quot;/&gt;</div></pre></td></tr></table></figure><p>禁用 周六 周日 所对应的日期</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d442&quot; type=&quot;text&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;disabledDays:[0,6]&#125;)&quot;/&gt;</div></pre></td></tr></table></figure><h4 id="5）无效日期限制"><a href="#5）无效日期限制" class="headerlink" title="5）无效日期限制"></a>5）无效日期限制</h4><p>可以使用此功能禁用,所指定的一个或多个日期,只要熟悉正则表达式,可以尽情发挥</p><p>用法(正则匹配):<br>如果你熟悉正则表达式,会很容易理解下面的匹配用法<br>如果不熟悉,可以参考下面的常用示例</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[&apos;2008-02-01&apos;,&apos;2008-02-29&apos;] 表示禁用 2008-02-01 和 2008-02-29</div><div class="line">[&apos;2008-..-01&apos;,&apos;2008-02-29&apos;] 表示禁用 2008-所有月份-01 和 2008-02-29</div><div class="line">[&apos;200[0-8]]-02-01&apos;,&apos;2008-02-29&apos;] 表示禁用 [2000至2008]-02-01 和 2008-02-29</div><div class="line">[&apos;^2006&apos;] 表示禁用 2006年的所有日期</div><div class="line">此外,您还可以使用 %y %M %d %H %m %s 等变量, 用法同动态日期限制 注意:%ld不能使用</div><div class="line">[&apos;....-..-01&apos;,&apos;%y-%M-%d&apos;] 表示禁用 所有年份和所有月份的第一天和今天 </div><div class="line">[&apos;%y-%M-&#123;%d-1&#125;&apos;,&apos;%y-%M-&#123;%d+1&#125;&apos;] 表示禁用 昨天和明天</div><div class="line"></div><div class="line">当然,除了可以限制日期以外,您还可以限制时间</div><div class="line">[&apos;....-..-.. 10\:00\:00&apos;] 表示禁用 每天10点 (注意 : 需要 使用 \: )</div></pre></td></tr></table></figure><p>示例5.1：禁用 每个月份的 5日 15日 25日</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d451&quot; type=&quot;text&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;disabledDates:[&apos;5$&apos;]&#125;)&quot;/&gt;</div><div class="line">//注意 :&apos;5$&apos; 表示以 5 结尾 注意 $ 的用法</div></pre></td></tr></table></figure><p>示例5.2：禁用 所有早于2000-01-01的日期</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d452&quot; type=&quot;text&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;disabledDates:[&apos;^19&apos;]&#125;)&quot;/&gt;</div><div class="line">//注意:&apos;^19&apos; 表示以 19 开头 注意 ^ 的用法</div><div class="line">//当然,可以使用minDate实现类似的功能 这里主要是 在演示 ^ 的用法</div></pre></td></tr></table></figure><p>示例5.3：配合min/maxDate使用,可以把可选择的日期分隔成多段</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d453&quot; type=&quot;text&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;minDate:&apos;%y-%M-01&apos;,maxDate:&apos;%y-%M-%ld&apos;,disabledDates:[&apos;0[4-7]$&apos;,&apos;1[1-5]$&apos;,&apos;2[58]$&apos;]&#125;)&quot;/&gt;</div></pre></td></tr></table></figure><p>示例5.4：min/maxDate disabledDays disabledDates 配合使用 即使在要求非常苛刻的情况下也能满足需求</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d454&quot; type=&quot;text&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;minDate:&apos;%y-%M-01&apos;,maxDate:&apos;%y-%M-%ld&apos;,disabledDates:[&apos;0[4-7]$&apos;,&apos;1[1-5]$&apos;,&apos;2[58]$&apos;],disabledDays:[1,3,6]&#125;)&quot;/&gt;</div></pre></td></tr></table></figure><p>示例5.5：禁用前一个小时和后一个小时内所有时间 使用 %y %M %d %H %m %s 等变量</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d2a25&quot; type=&quot;text&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;dateFmt:&apos;yyyy-MM-dd HH:mm:ss&apos;,disabledDates:[&apos;%y-%M-%d &#123;%H-1&#125;\:..\:..&apos;,&apos;%y-%M-%d &#123;%H+1&#125;\:..\:..&apos;]&#125;)&quot;/&gt;</div></pre></td></tr></table></figure><p>示例5.6：#F{}也是可以使用的</p><p>本示例利用自定义函数 随机禁用0-23中的任何一个小时<br>打开小时选择框,你会发现有一个小时被禁用的,而且每次禁用的小时都不同</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	function randomH()&#123;</div><div class="line">	//产生一个随机的数字 0-23</div><div class="line">	var H = Math.round(Math.random() * 23);</div><div class="line">	if(H&lt;10) H=&apos;0&apos;+H;</div><div class="line">	//返回 &apos;^&apos; + 数字</div><div class="line">	return &apos;^&apos;+H;</div><div class="line">	&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;input type=&quot;text&quot; class=&quot;Wdate&quot; id=&quot;d456&quot; onFocus=&quot;WdatePicker(&#123;dateFmt:&apos;HH:mm:ss&apos;,disabledDates:[&apos;#F&#123;randomH()&#125;&apos;]&#125;)&quot;/&gt;</div></pre></td></tr></table></figure><h4 id="6）有效日期"><a href="#6）有效日期" class="headerlink" title="6）有效日期"></a>6）有效日期</h4><p>使用无效日期可以很方便的禁用不可用的日期,但是在只需要启用少部分日期的情况下,有效日期的功能就非常适合了.</p><p>关键属性: opposite 默认为false, 为true时,无效日期变成有效日期,该属性对无效天,特殊天不起作用</p><p>示例6.1：只启用 每个月份的 5日 15日 25日</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d46&quot; type=&quot;text&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;opposite:true,disabledDates:[&apos;5$&apos;]&#125;)&quot;/&gt;</div><div class="line">//注意 :&apos;5$&apos; 表示以 5 结尾 注意 $ 的用法</div></pre></td></tr></table></figure><h4 id="7）特殊天和特殊日期"><a href="#7）特殊天和特殊日期" class="headerlink" title="7）特殊天和特殊日期"></a>7）特殊天和特殊日期</h4><p>特殊天和特殊日期的用法跟完全无效天和无效日期完全相同,但是opposite属性对其无效</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">specialDays (0至6 分别代表 周日至周六) 用法同无效天</div></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">specialDates 用法同无效日期,但是对时分秒无效</div></pre></td></tr></table></figure><p>示例7.1：高亮每周 周一 周五</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d471&quot; type=&quot;text&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;specialDays:[1,5]&#125;)&quot;/&gt;</div></pre></td></tr></table></figure><p>示例7.2：高亮每月 1号 15号</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d472&quot; type=&quot;text&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;specialDates:[&apos;....-..-01&apos;,&apos;....-..-15&apos;]&#125;)&quot;/&gt;</div></pre></td></tr></table></figure><p>Thinks <a href="http://www.my97.net/" target="_blank" rel="external">My97DatePicker</a></p></div><div></div><div><div style="padding:10px 0;margin:20px auto;width:90%;text-align:center"><div>坚持原创技术分享，您的支持将鼓励我继续创作！</div> <button id="rewardButton" disable="enable" onclick='var qr=document.getElementById("QR");"none"===qr.style.display?qr.style.display="block":qr.style.display="none"'> <span>赏</span></button><div id="QR" style="display:none"><div id="wechat" style="display:inline-block"> <img id="wechat_qr" src="/uploads/wxpay.png" alt="HuHao WeChat Pay"><p>微信打赏</p></div><div id="alipay" style="display:inline-block"> <img id="alipay_qr" src="/uploads/Alipay.png" alt="HuHao Alipay"><p>支付宝打赏</p></div></div></div></div><footer class="post-footer"><div class="post-tags"> <a href="/tags/JQuery/" rel="tag"># JQuery</a></div><div class="post-nav"><div class="post-nav-next post-nav-item"><a href="/2017/window.open子窗口给父窗口传值.html" rel="next" title="window.open子窗口给父窗口传值"><i class="fa fa-chevron-left"></i> window.open子窗口给父窗口传值</a></div><span class="post-nav-divider"></span><div class="post-nav-prev post-nav-item"></div></div></footer></article><div class="post-spread"><div class="ds-share flat" data-thread-key="2017/JQuery日历插件My97DatePicker日期范围限制.html" data-title="JQuery日历插件My97DatePicker日期范围限制" data-content="" data-url="http://notes.huhao.me/2017/JQuery日历插件My97DatePicker日期范围限制.html"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li><li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li><li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li><li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li><li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div></div></div></div><div class="comments" id="comments"><div class="ds-thread" data-thread-key="2017/JQuery日历插件My97DatePicker日期范围限制.html" data-title="JQuery日历插件My97DatePicker日期范围限制" data-url="http://notes.huhao.me/2017/JQuery日历插件My97DatePicker日期范围限制.html"></div></div></div><div class="sidebar-toggle"><div class="sidebar-toggle-line-wrap"><span class="sidebar-toggle-line sidebar-toggle-line-first"></span><span class="sidebar-toggle-line sidebar-toggle-line-middle"></span><span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id="sidebar" class="sidebar"><div class="sidebar-inner"><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap"> 文章目录</li><li class="sidebar-nav-overview" data-target="site-overview"> 站点概览</li></ul><section class="site-overview sidebar-panel"><div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person"> <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="HuHao"><p class="site-author-name" itemprop="name">HuHao</p><p class="site-description motion-element" itemprop="description"></p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"> <a href="/archives"><span class="site-state-item-count">18</span> <span class="site-state-item-name">日志</span></a></div><div class="site-state-item site-state-categories"> <a href="/categories/index.html"><span class="site-state-item-count">9</span> <span class="site-state-item-name">分类</span></a></div><div class="site-state-item site-state-tags"> <a href="/tags/index.html"><span class="site-state-item-count">13</span> <span class="site-state-item-name">标签</span></a></div></nav><div class="feed-link motion-element"><a href="/atom.xml" rel="alternate"><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-author motion-element"><span class="links-of-author-item"><a href="https://github.com/hzhuhao/" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i> GitHub</a></span><span class="links-of-author-item"><a href="http://weibo.com/u/2880317531" target="_blank" title="微博"><i class="fa fa-fw fa-globe"></i> 微博</a></span></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class="post-toc"><div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。"><span class="nav-number">1.</span> <span class="nav-text">My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下面重点说明日期范围限制："><span class="nav-number">1.1.</span> <span class="nav-text">下面重点说明日期范围限制：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）静态限制"><span class="nav-number">1.1.1.</span> <span class="nav-text">1）静态限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）动态限制"><span class="nav-number">1.1.2.</span> <span class="nav-text">2）动态限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3）脚本自定义限制"><span class="nav-number">1.1.3.</span> <span class="nav-text">3）脚本自定义限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4）无效天限制"><span class="nav-number">1.1.4.</span> <span class="nav-text">4）无效天限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5）无效日期限制"><span class="nav-number">1.1.5.</span> <span class="nav-text">5）无效日期限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6）有效日期"><span class="nav-number">1.1.6.</span> <span class="nav-text">6）有效日期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7）特殊天和特殊日期"><span class="nav-number">1.1.7.</span> <span class="nav-text">7）特殊天和特殊日期</span></a></li></ol></li></ol></li></ol></div></div></section></div></aside></div></main><footer id="footer" class="footer"><div class="footer-inner"><div class="copyright"> &copy; <span itemprop="copyrightYear">2017</span><span class="with-love"><i class="fa fa-heart"></i></span> <span class="author" itemprop="copyrightHolder">HuHao</span></div><div class="powered-by"> 由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div><div class="theme-info"> 鄂ICP备15002169号-6</div></div></footer><div class="back-to-top"><i class="fa fa-arrow-up"></i></div></div><script type="text/javascript">"[object Function]"!==Object.prototype.toString.call(window.Promise)&&(window.Promise=null)</script><script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script><script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script><script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script><script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script><script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script><script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script><script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script><script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script><script type="text/javascript">var duoshuoQuery={short_name:"huhao"};!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.id="duoshuo-script",t.src=("https:"==document.location.protocol?"https:":"http:")+"//static.duoshuo.com/embed.js",t.charset="UTF-8",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(t)}()</script><script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script><script src="/js/src/hook-duoshuo.js?v=5.1.0"></script><script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script><script src="/js/src/hook-duoshuo.js"></script><script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script><script>AV.initialize("N0DBE7LiTlV6kxIOhPvoUWtc-gzGzoHsz","9K4obQYEkplnSqpwfNifHIzB")</script><script>function showTime(e){var t=new AV.Query(e),n=[],o=$(".leancloud_visitors");o.each(function(){n.push($(this).attr("id").trim())}),t.containedIn("url",n),t.find().done(function(e){if(0===e.length)return void o.find(".leancloud-visitors-count").text(0);for(var t=0;t<e.length;t++){var i=e[t],s=i.get("url"),r=i.get("time"),l=document.getElementById(s);$(l).find(".leancloud-visitors-count").text(r)}for(var t=0;t<n.length;t++){var s=n[t],l=document.getElementById(s),c=$(l).find(".leancloud-visitors-count");""==c.text()&&c.text(0)}}).fail(function(e,t){console.log("Error: "+t.code+" "+t.message)})}function addCount(e){var t=$(".leancloud_visitors"),n=t.attr("id").trim(),o=t.attr("data-flag-title").trim(),i=new AV.Query(e);i.equalTo("url",n),i.find({success:function(t){if(t.length>0){var i=t[0];i.fetchWhenSave(!0),i.increment("time"),i.save(null,{success:function(e){$(document.getElementById(n)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to save Visitor num, with error message: "+t.message)}})}else{var s=new e,r=new AV.ACL;r.setPublicReadAccess(!0),r.setPublicWriteAccess(!0),s.setACL(r),s.set("title",o),s.set("url",n),s.set("time",1),s.save(null,{success:function(e){$(document.getElementById(n)).find(".leancloud-visitors-count").text(e.get("time"))},error:function(e,t){console.log("Failed to create")}})}},error:function(e){console.log("Error:"+e.code+" "+e.message)}})}$(function(){var e=AV.Object.extend("Counter");1==$(".leancloud_visitors").length?addCount(e):$(".post-title-link").length>1&&showTime(e)})</script><link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css"><script src="/lib/algolia-instant-search/instantsearch.min.js"></script><script src="/js/src/algolia-search.js?v=5.1.0"></script></body></html>
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="JQuery," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="HuHao's Notes" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。常规的调用比较简单，如下所示：1&amp;lt;input class=&amp;quot;Wdate&amp;quot; id=&amp;quot;d1&amp;quot; onclick=&amp;quot;WdatePicker()&amp;quot; /&amp;gt;
+下面重点说明日期范围限制：1）静态限制你可以给通过配置minDate(最小日期),max">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JQuery日历插件My97DatePicker日期范围限制">
+<meta property="og:url" content="http://notes.huhao.me/2017/JQuery日历插件My97DatePicker日期范围限制.html">
+<meta property="og:site_name" content="HuHao's Notes">
+<meta property="og:description" content="My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。常规的调用比较简单，如下所示：1&amp;lt;input class=&amp;quot;Wdate&amp;quot; id=&amp;quot;d1&amp;quot; onclick=&amp;quot;WdatePicker()&amp;quot; /&amp;gt;
+下面重点说明日期范围限制：1）静态限制你可以给通过配置minDate(最小日期),max">
+<meta property="og:updated_time" content="2017-03-22T07:53:23.624Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JQuery日历插件My97DatePicker日期范围限制">
+<meta name="twitter:description" content="My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。常规的调用比较简单，如下所示：1&amp;lt;input class=&amp;quot;Wdate&amp;quot; id=&amp;quot;d1&amp;quot; onclick=&amp;quot;WdatePicker()&amp;quot; /&amp;gt;
+下面重点说明日期范围限制：1）静态限制你可以给通过配置minDate(最小日期),max">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6243258257998087000',
+      author: '仄言'
+    },
+    algolia: {
+      applicationID: 'P3JTR5U5SY',
+      apiKey: 'b3b5707bbfa4848e45d035350c647f4d',
+      indexName: 'noteIndex',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://notes.huhao.me/2017/JQuery日历插件My97DatePicker日期范围限制.html"/>
+
+
+
+
+
+  <title> JQuery日历插件My97DatePicker日期范围限制 | HuHao's Notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HuHao's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Quick notes</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://notes.huhao.me/2017/JQuery日历插件My97DatePicker日期范围限制.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HuHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HuHao's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                JQuery日历插件My97DatePicker日期范围限制
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-22T12:00:00+08:00">
+                2017-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JQuery/" itemprop="url" rel="index">
+                    <span itemprop="name">JQuery</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/JQuery日历插件My97DatePicker日期范围限制.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/JQuery日历插件My97DatePicker日期范围限制.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/JQuery日历插件My97DatePicker日期范围限制.html" class="leancloud_visitors" data-flag-title="JQuery日历插件My97DatePicker日期范围限制">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。"><a href="#My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。" class="headerlink" title="My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。"></a>My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。</h2><p>常规的调用比较简单，如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input class=&quot;Wdate&quot; id=&quot;d1&quot; onclick=&quot;WdatePicker()&quot; /&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="下面重点说明日期范围限制："><a href="#下面重点说明日期范围限制：" class="headerlink" title="下面重点说明日期范围限制："></a>下面重点说明日期范围限制：</h3><h4 id="1）静态限制"><a href="#1）静态限制" class="headerlink" title="1）静态限制"></a>1）静态限制</h4><p>你可以给通过配置minDate(最小日期),maxDate(最大日期)为静态日期值,来限定日期的范围</p>
+<p>示例1.1：限制日期的范围是 2017-03-01到2017-12-20</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input class=&quot;Wdate&quot; id=&quot;d2&quot; onfocus=&quot;WdatePicker(&#123;skin:&apos;whyGreen&apos;,minDate:&apos;2017-03-01&apos;,maxDate:&apos;2017-12-20&apos;&#125;)&quot; /&gt;</div></pre></td></tr></table></figure>
+<p>示例1.2：限制日期的范围是 2017-03-01 21:30:00 到 2017-12-4 23:59:30</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;text&quot; id=&quot;d3&quot; class=&quot;Wdate&quot; onfocus=&quot;WdatePicker(&#123;skin:&apos;whyGreen&apos;,dateFmt:&apos;yyyy-MM-dd HH:mm:ss&apos;,minDate:&apos;2017-03-01 21:30:00&apos;,maxDate:&apos;2017-12-4 23:59:30&apos;&#125;)&quot; value=&apos;2017-12-4 23:59:30&apos;/&gt;</div></pre></td></tr></table></figure>
+<p>示例1.3：限制日期的范围是 2017年03月 到 2017年12月</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;text&quot; class=&quot;Wdate&quot; id=&quot;d4&quot; onfocus=&quot;WdatePicker(&#123;dateFmt:&apos;yyyy年M月&apos;,minDate:&apos;2017-03&apos;,maxDate:&apos;2017-12&apos;&#125;)&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>示例1.4：限制时间的范围是 9:00:00 到 18:30:00</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input class=&quot;Wdate&quot; id=&quot;d5&quot; onfocus=&quot;WdatePicker(&#123;dateFmt:&apos;H:mm:ss&apos;,minDate:&apos;9:00:00&apos;,maxDate:&apos;18:30:00&apos;&#125;)&quot; /&gt;</div></pre></td></tr></table></figure>
+<h4 id="2）动态限制"><a href="#2）动态限制" class="headerlink" title="2）动态限制"></a>2）动态限制</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">你可以通过系统给出的动态变量,</div><div class="line">%y(当前年),</div><div class="line">%M(当前月)等来限度日期范围,</div><div class="line">你还可以通过&#123;&#125;进行表达式运算,</div><div class="line">如:&#123;%d+1&#125;:表示明天</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">| 格式   | 说明                  |</div><div class="line">| ---- | ------------------- |</div><div class="line">| %y   | 当前年                 |</div><div class="line">| %M   | 当前月                 |</div><div class="line">| %d   | 当前日                 |</div><div class="line">| %ld  | 本月最后一天              |</div><div class="line">| %H   | 当前时                 |</div><div class="line">| %m   | 当前分                 |</div><div class="line">| %s   | 当前秒                 |</div><div class="line">| &#123;&#125;   | 运算表达式,如:&#123;%d+1&#125;:表示明天 |</div><div class="line">| #F&#123;&#125; | &#123;&#125;之间是函数可写自定义JS代码    |</div></pre></td></tr></table></figure>
+<p>示例2.1：只能选择今天以前的日期(包括今天)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d421&quot; class=&quot;Wdate&quot; type=&quot;text&quot;   onfocus=&quot;WdatePicker(&#123;skin:&apos;whyGreen&apos;,maxDate:&apos;%y-%M-%d&apos;&#125;)&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>示例2.2：使用了运算表达式 只能选择今天以后的日期(不包括今天)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d422&quot; class=&quot;Wdate&quot; type=&quot;text&quot; onfocus=&quot;WdatePicker(&#123;minDate:&apos;%y-%M-&#123;%d+1&#125;&apos;&#125;)&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>示例2.3：只能选择本月的日期1号至本月最后一天</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d423&quot; class=&quot;Wdate&quot; type=&quot;text&quot; onfocus=&quot;WdatePicker(&#123;minDate:&apos;%y-%M-01&apos;,maxDate:&apos;%y-%M-%ld&apos;&#125;)&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>示例2.4：只能选择今天7:00:00至明天21:00:00的日期</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d424&quot; class=&quot;Wdate&quot; type=&quot;text&quot; onfocus=&quot;WdatePicker(&#123;dateFmt:&apos;yyyy-M-d H:mm:ss&apos;,minDate:&apos;%y-%M-%d 7:00:00&apos;,maxDate:&apos;%y-%M-&#123;%d+1&#125; 21:00:00&apos;&#125;)&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>示例2.5：使用了运算表达式 只能选择 20小时前 至 30小时后 的日期</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d425&quot; class=&quot;Wdate&quot; type=&quot;text&quot; onClick=&quot;WdatePicker(&#123;dateFmt:&apos;yyyy-MM-dd HH:mm&apos;,minDate:&apos;%y-%M-%d &#123;%H-20&#125;:%m:%s&apos;,maxDate:&apos;%y-%M-%d &#123;%H+30&#125;:%m:%s&apos;&#125;)&quot;/&gt;</div></pre></td></tr></table></figure>
+<h4 id="3）脚本自定义限制"><a href="#3）脚本自定义限制" class="headerlink" title="3）脚本自定义限制"></a>3）脚本自定义限制</h4><p>系统提供了$dp.$D和$dp.$DV这两个API来辅助你进行日期运算,此外你还可以通过在 #F{} 中填入你自定义的脚本,做任何你想做的日期限制</p>
+<p>示例3.1： 前面的日期不能大于后面的日期且两个日期都不能大于 2020-10-01</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d4311&quot; class=&quot;Wdate&quot; type=&quot;text&quot; onFocus=&quot;WdatePicker(&#123;maxDate:&apos;#F&#123;$dp.$D(\&apos;d4312\&apos;)||\&apos;2020-10-01\&apos;&#125;&apos;&#125;)&quot;/&gt;</div><div class="line">&lt;input id=&quot;d4312&quot; class=&quot;Wdate&quot; type=&quot;text&quot; onFocus=&quot;WdatePicker(&#123;minDate:&apos;#F&#123;$dp.$D(\&apos;d4311\&apos;)&#125;&apos;,maxDate:&apos;2020-10-01&apos;&#125;)&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>示例3.2：前面的日期+3天 不能大于 后面的日期</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;text&quot; class=&quot;Wdate&quot; id=&quot;d4321&quot; onFocus=&quot;WdatePicker(&#123;maxDate:&apos;#F&#123;$dp.$D(\&apos;d4322\&apos;,&#123;d:-3&#125;);&#125;&apos;&#125;)&quot;/&gt;</div><div class="line">&lt;input   type=&quot;text&quot; class=&quot;Wdate&quot; id=&quot;d4322&quot; onFocus=&quot;WdatePicker(&#123;minDate:&apos;#F&#123;$dp.$D(\&apos;d4321\&apos;,&#123;d:3&#125;);&#125;&apos;&#125;)&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>示例3.3：前面的日期+3月零2天 不能大于 后面的日期 且 前面日期都不能大于 2020-4-3减去3月零2天 后面日期 不能大于 2020-4-3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;text&quot; class=&quot;Wdate&quot; id=&quot;d4331&quot; onFocus=&quot;WdatePicker(&#123;maxDate:&apos;#F&#123;$dp.$D(\&apos;d4332\&apos;,&#123;M:-3,d:-2&#125;)||$dp.$DV(\&apos;2020-4-3\&apos;,&#123;M:-3,d:-2&#125;)&#125;&apos;&#125;)&quot;/&gt;</div><div class="line">&lt;input type=&quot;text&quot; class=&quot;Wdate&quot; id=&quot;d4332&quot; onFocus=&quot;WdatePicker(&#123;minDate:&apos;#F&#123;$dp.$D(\&apos;d4331\&apos;,&#123;M:3,d:2&#125;);&#125;&apos;,maxDate:&apos;2020-4-3&apos;&#125;)&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>示例3.4：发挥你的JS才能,定义任何你想要的日期限制</p>
+<p>自动转到随机生成的一天,当然,此示例没有实际的用途,只是为演示目的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">//返回一个随机的日期</div><div class="line">function randomDate()&#123;</div><div class="line">	var Y = 2000 + Math.round(Math.random() * 10);</div><div class="line">	var M = 1 + Math.round(Math.random() * 11);</div><div class="line">	var D = 1 + Math.round(Math.random() * 27);</div><div class="line">	return Y+&apos;-&apos;+M+&apos;-&apos;+D;</div><div class="line">	&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;input type=&quot;text&quot; class=&quot;Wdate&quot; id=&quot;d434&quot; onFocus=&quot;var date=randomDate();WdatePicker(&#123;minDate:date,maxDate:date&#125;)&quot;/&gt;</div></pre></td></tr></table></figure>
+<h4 id="4）无效天限制"><a href="#4）无效天限制" class="headerlink" title="4）无效天限制"></a>4）无效天限制</h4><p>可以使用此功能禁用周日至周六所对应的日期,相关属性:disabledDays (0至6 分别代表周日至周六)</p>
+<p>示例4.1：禁用 周六 所对应的日期</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d441&quot; type=&quot;text&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;disabledDays:[6]&#125;)&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>禁用 周六 周日 所对应的日期</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d442&quot; type=&quot;text&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;disabledDays:[0,6]&#125;)&quot;/&gt;</div></pre></td></tr></table></figure>
+<h4 id="5）无效日期限制"><a href="#5）无效日期限制" class="headerlink" title="5）无效日期限制"></a>5）无效日期限制</h4><p>可以使用此功能禁用,所指定的一个或多个日期,只要熟悉正则表达式,可以尽情发挥</p>
+<p>用法(正则匹配):<br>如果你熟悉正则表达式,会很容易理解下面的匹配用法<br>如果不熟悉,可以参考下面的常用示例 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[&apos;2008-02-01&apos;,&apos;2008-02-29&apos;] 表示禁用 2008-02-01 和 2008-02-29</div><div class="line">[&apos;2008-..-01&apos;,&apos;2008-02-29&apos;] 表示禁用 2008-所有月份-01 和 2008-02-29</div><div class="line">[&apos;200[0-8]]-02-01&apos;,&apos;2008-02-29&apos;] 表示禁用 [2000至2008]-02-01 和 2008-02-29</div><div class="line">[&apos;^2006&apos;] 表示禁用 2006年的所有日期</div><div class="line">此外,您还可以使用 %y %M %d %H %m %s 等变量, 用法同动态日期限制 注意:%ld不能使用</div><div class="line">[&apos;....-..-01&apos;,&apos;%y-%M-%d&apos;] 表示禁用 所有年份和所有月份的第一天和今天 </div><div class="line">[&apos;%y-%M-&#123;%d-1&#125;&apos;,&apos;%y-%M-&#123;%d+1&#125;&apos;] 表示禁用 昨天和明天</div><div class="line"></div><div class="line">当然,除了可以限制日期以外,您还可以限制时间</div><div class="line">[&apos;....-..-.. 10\:00\:00&apos;] 表示禁用 每天10点 (注意 : 需要 使用 \: )</div></pre></td></tr></table></figure>
+<p>示例5.1：禁用 每个月份的 5日 15日 25日</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d451&quot; type=&quot;text&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;disabledDates:[&apos;5$&apos;]&#125;)&quot;/&gt;</div><div class="line">//注意 :&apos;5$&apos; 表示以 5 结尾 注意 $ 的用法</div></pre></td></tr></table></figure>
+<p>示例5.2：禁用 所有早于2000-01-01的日期</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d452&quot; type=&quot;text&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;disabledDates:[&apos;^19&apos;]&#125;)&quot;/&gt;</div><div class="line">//注意:&apos;^19&apos; 表示以 19 开头 注意 ^ 的用法</div><div class="line">//当然,可以使用minDate实现类似的功能 这里主要是 在演示 ^ 的用法</div></pre></td></tr></table></figure>
+<p>示例5.3：配合min/maxDate使用,可以把可选择的日期分隔成多段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d453&quot; type=&quot;text&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;minDate:&apos;%y-%M-01&apos;,maxDate:&apos;%y-%M-%ld&apos;,disabledDates:[&apos;0[4-7]$&apos;,&apos;1[1-5]$&apos;,&apos;2[58]$&apos;]&#125;)&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>示例5.4：min/maxDate disabledDays disabledDates 配合使用 即使在要求非常苛刻的情况下也能满足需求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d454&quot; type=&quot;text&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;minDate:&apos;%y-%M-01&apos;,maxDate:&apos;%y-%M-%ld&apos;,disabledDates:[&apos;0[4-7]$&apos;,&apos;1[1-5]$&apos;,&apos;2[58]$&apos;],disabledDays:[1,3,6]&#125;)&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>示例5.5：禁用前一个小时和后一个小时内所有时间 使用 %y %M %d %H %m %s 等变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d2a25&quot; type=&quot;text&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;dateFmt:&apos;yyyy-MM-dd HH:mm:ss&apos;,disabledDates:[&apos;%y-%M-%d &#123;%H-1&#125;\:..\:..&apos;,&apos;%y-%M-%d &#123;%H+1&#125;\:..\:..&apos;]&#125;)&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>示例5.6：#F{}也是可以使用的</p>
+<p>本示例利用自定义函数 随机禁用0-23中的任何一个小时<br>打开小时选择框,你会发现有一个小时被禁用的,而且每次禁用的小时都不同</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	function randomH()&#123;</div><div class="line">	//产生一个随机的数字 0-23</div><div class="line">	var H = Math.round(Math.random() * 23);</div><div class="line">	if(H&lt;10) H=&apos;0&apos;+H;</div><div class="line">	//返回 &apos;^&apos; + 数字</div><div class="line">	return &apos;^&apos;+H;</div><div class="line">	&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;input type=&quot;text&quot; class=&quot;Wdate&quot; id=&quot;d456&quot; onFocus=&quot;WdatePicker(&#123;dateFmt:&apos;HH:mm:ss&apos;,disabledDates:[&apos;#F&#123;randomH()&#125;&apos;]&#125;)&quot;/&gt;</div></pre></td></tr></table></figure>
+<h4 id="6）有效日期"><a href="#6）有效日期" class="headerlink" title="6）有效日期"></a>6）有效日期</h4><p>使用无效日期可以很方便的禁用不可用的日期,但是在只需要启用少部分日期的情况下,有效日期的功能就非常适合了.</p>
+<p>关键属性: opposite 默认为false, 为true时,无效日期变成有效日期,该属性对无效天,特殊天不起作用 </p>
+<p>示例6.1：只启用 每个月份的 5日 15日 25日</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d46&quot; type=&quot;text&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;opposite:true,disabledDates:[&apos;5$&apos;]&#125;)&quot;/&gt;</div><div class="line">//注意 :&apos;5$&apos; 表示以 5 结尾 注意 $ 的用法</div></pre></td></tr></table></figure>
+<h4 id="7）特殊天和特殊日期"><a href="#7）特殊天和特殊日期" class="headerlink" title="7）特殊天和特殊日期"></a>7）特殊天和特殊日期</h4><p>特殊天和特殊日期的用法跟完全无效天和无效日期完全相同,但是opposite属性对其无效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">specialDays (0至6 分别代表 周日至周六) 用法同无效天</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">specialDates 用法同无效日期,但是对时分秒无效</div></pre></td></tr></table></figure>
+<p>示例7.1：高亮每周 周一 周五</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d471&quot; type=&quot;text&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;specialDays:[1,5]&#125;)&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>示例7.2：高亮每月 1号 15号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=&quot;d472&quot; type=&quot;text&quot; class=&quot;Wdate&quot; onFocus=&quot;WdatePicker(&#123;specialDates:[&apos;....-..-01&apos;,&apos;....-..-15&apos;]&#125;)&quot;/&gt;</div></pre></td></tr></table></figure>
+<p>Thinks <a href="http://www.my97.net/" target="_blank" rel="external">My97DatePicker</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wxpay.png" alt="HuHao WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/Alipay.png" alt="HuHao Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JQuery/" rel="tag"># JQuery</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/window.open子窗口给父窗口传值.html" rel="next" title="window.open子窗口给父窗口传值">
+                <i class="fa fa-chevron-left"></i> window.open子窗口给父窗口传值
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/thinkphp在不支持pathinfo的nginx上的解决方法.html" rel="prev" title="thinkphp在不支持pathinfo的nginx上的解决方法">
+                thinkphp在不支持pathinfo的nginx上的解决方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/JQuery日历插件My97DatePicker日期范围限制.html"
+     data-title="JQuery日历插件My97DatePicker日期范围限制"
+     data-content=""
+     data-url="http://notes.huhao.me/2017/JQuery日历插件My97DatePicker日期范围限制.html">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/JQuery日历插件My97DatePicker日期范围限制.html"
+           data-title="JQuery日历插件My97DatePicker日期范围限制" data-url="http://notes.huhao.me/2017/JQuery日历插件My97DatePicker日期范围限制.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="HuHao" />
+          <p class="site-author-name" itemprop="name">HuHao</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hzhuhao/" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2880317531" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。"><span class="nav-number">1.</span> <span class="nav-text">My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下面重点说明日期范围限制："><span class="nav-number">1.1.</span> <span class="nav-text">下面重点说明日期范围限制：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1）静态限制"><span class="nav-number">1.1.1.</span> <span class="nav-text">1）静态限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2）动态限制"><span class="nav-number">1.1.2.</span> <span class="nav-text">2）动态限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3）脚本自定义限制"><span class="nav-number">1.1.3.</span> <span class="nav-text">3）脚本自定义限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4）无效天限制"><span class="nav-number">1.1.4.</span> <span class="nav-text">4）无效天限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5）无效日期限制"><span class="nav-number">1.1.5.</span> <span class="nav-text">5）无效日期限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6）有效日期"><span class="nav-number">1.1.6.</span> <span class="nav-text">6）有效日期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7）特殊天和特殊日期"><span class="nav-number">1.1.7.</span> <span class="nav-text">7）特殊天和特殊日期</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HuHao</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  鄂ICP备15002169号-6 
+<!--  - <a class="theme-link" href="https://github.com/hzhuhao">
+    NexT.Pisces
+  </a> -->
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"huhao"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("N0DBE7LiTlV6kxIOhPvoUWtc-gzGzoHsz", "9K4obQYEkplnSqpwfNifHIzB");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+</body>
+</html>
