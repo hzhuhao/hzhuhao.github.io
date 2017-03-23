@@ -970,6 +970,172 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://notes.huhao.me/2017/linux系统之间互传文件.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HuHao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HuHao's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/linux系统之间互传文件.html" itemprop="url">
+                  linux系统之间互传文件
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-15T10:58:00+08:00">
+                2017-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Liunx/" itemprop="url" rel="index">
+                    <span itemprop="name">Liunx</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/linux系统之间互传文件.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/linux系统之间互传文件.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/linux系统之间互传文件.html" class="leancloud_visitors" data-flag-title="linux系统之间互传文件">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-文件复制：本机-gt-远程服务器"><a href="#1-文件复制：本机-gt-远程服务器" class="headerlink" title="1.文件复制：本机-&gt;远程服务器"></a>1.文件复制：本机-&gt;远程服务器</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp /home/root/test1.txt shaoxiaohu@172.16.18.1:/home/test2.txt</div></pre></td></tr></table></figure>
+<p>其中，test1为源文件，test2为目标文件，root@172.16.18.1为远程服务器的用户名和ip地址。</p>
+<h2 id="2-文件复制：远程服务器-gt-本机"><a href="#2-文件复制：远程服务器-gt-本机" class="headerlink" title="2.文件复制：远程服务器-&gt;本机"></a>2.文件复制：远程服务器-&gt;本机</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp root@172.16.18.2:/home/test2.txt /home/root/test1.txt</div></pre></td></tr></table></figure>
+<p>其中，root@172.16.18.2为远程服务器的用户名和ip地址， test2为源文件，test1为目标路径</p>
+<h2 id="3-文件夹复制"><a href="#3-文件夹复制" class="headerlink" title="3.文件夹复制"></a>3.文件夹复制</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在scp命令后加“-r”参数即可。</div></pre></td></tr></table></figure>
+<h2 id="4-端口号"><a href="#4-端口号" class="headerlink" title="4. 端口号"></a>4. 端口号</h2><p>如果端口号有更改，需在scp 后输入：-P 端口号 （注意是大写，ssh的命令中 -p是小写）。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://notes.huhao.me/2017/CentOS7 搭建Git服务器.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1099,172 +1265,6 @@
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://notes.huhao.me/2017/linux系统之间互传文件.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="HuHao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="HuHao's Notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/linux系统之间互传文件.html" itemprop="url">
-                  linux系统之间互传文件
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-15T10:58:00+08:00">
-                2017-03-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Liunx/" itemprop="url" rel="index">
-                    <span itemprop="name">Liunx</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/linux系统之间互传文件.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/linux系统之间互传文件.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2017/linux系统之间互传文件.html" class="leancloud_visitors" data-flag-title="linux系统之间互传文件">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-文件复制：本机-gt-远程服务器"><a href="#1-文件复制：本机-gt-远程服务器" class="headerlink" title="1.文件复制：本机-&gt;远程服务器"></a>1.文件复制：本机-&gt;远程服务器</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp /home/root/test1.txt shaoxiaohu@172.16.18.1:/home/test2.txt</div></pre></td></tr></table></figure>
-<p>其中，test1为源文件，test2为目标文件，root@172.16.18.1为远程服务器的用户名和ip地址。</p>
-<h2 id="2-文件复制：远程服务器-gt-本机"><a href="#2-文件复制：远程服务器-gt-本机" class="headerlink" title="2.文件复制：远程服务器-&gt;本机"></a>2.文件复制：远程服务器-&gt;本机</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp root@172.16.18.2:/home/test2.txt /home/root/test1.txt</div></pre></td></tr></table></figure>
-<p>其中，root@172.16.18.2为远程服务器的用户名和ip地址， test2为源文件，test1为目标路径</p>
-<h2 id="3-文件夹复制"><a href="#3-文件夹复制" class="headerlink" title="3.文件夹复制"></a>3.文件夹复制</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在scp命令后加“-r”参数即可。</div></pre></td></tr></table></figure>
-<h2 id="4-端口号"><a href="#4-端口号" class="headerlink" title="4. 端口号"></a>4. 端口号</h2><p>如果端口号有更改，需在scp 后输入：-P 端口号 （注意是大写，ssh的命令中 -p是小写）。</p>
-
-          
         
       
     </div>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://notes.huhao.me/"/>
-  <updated>2017-03-23T05:57:37.995Z</updated>
+  <updated>2017-03-23T06:00:39.535Z</updated>
   <id>http://notes.huhao.me/</id>
   
   <author>
@@ -20,26 +20,23 @@
     <link href="http://notes.huhao.me/2017/thinkphp%E5%9C%A8%E4%B8%8D%E6%94%AF%E6%8C%81pathinfo%E7%9A%84nginx%E4%B8%8A%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95.html"/>
     <id>http://notes.huhao.me/2017/thinkphp在不支持pathinfo的nginx上的解决方法.html</id>
     <published>2017-03-23T05:53:00.000Z</published>
-    <updated>2017-03-23T05:57:37.995Z</updated>
+    <updated>2017-03-23T06:00:39.535Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="thinkphp在不支持pathinfo的nginx上的解决方法"><a href="#thinkphp在不支持pathinfo的nginx上的解决方法" class="headerlink" title="thinkphp在不支持pathinfo的nginx上的解决方法"></a>thinkphp在不支持pathinfo的nginx上的解决方法</h2><blockquote>
-<p>最近在用thinkphp做一个项目，基本完成后部署到nginx服务器上才发觉nginx是不支持pathinfo的，网上搜索了别人的解决方法，有两种思路：</p>
-<p> 1.修改thinkphp让他可以在nginx上运行</p>
-<p> 2.修改nginx让它支持pathinfo<br>网上说nginx开启pathinfo是有一定风险的，能不用pathinfo最好不用，所以还是折腾thinkphp吧，个人觉得这种方法相对第2种方法来得简单</p>
+    <content type="html"><![CDATA[<h2 id="thinkphp在不支持pathinfo的nginx上的解决方法"><a href="#thinkphp在不支持pathinfo的nginx上的解决方法" class="headerlink" title="thinkphp在不支持pathinfo的nginx上的解决方法"></a>thinkphp在不支持pathinfo的nginx上的解决方法</h2><p>最近在用thinkphp做一个项目，基本完成后部署到nginx服务器上才发觉nginx是不支持pathinfo的，网上搜索了别人的解决方法，有两种思路：</p>
+<p>  1.修改thinkphp让他可以在nginx上运行</p>
+<p>  2.修改nginx让它支持pathinfo<br>网上说nginx开启pathinfo是有一定风险的，能不用pathinfo最好不用，所以还是折腾thinkphp吧，个人觉得这种方法相对第2种方法来得简单</p>
 <p>修改nginx的rewrite　　</p>
-<a id="more"></a>
+ <a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">location / &#123; </div><div class="line">  if (!-e $request_filename) &#123; </div><div class="line">    rewrite ^(.*)$ /index.php?s=$1 last; </div><div class="line">    break; </div><div class="line">  &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>如果是多个项目，布署项目时要把项目布署到目录里，如后台的项目放到Admin目录里，那么在nginx的rewrite里再写一条<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">location /Admin/ &#123; </div><div class="line">   if (!-e $request_filename) &#123; </div><div class="line">     rewrite ^/Admin/(.*)$ /Admin/index.php?s=$1 last; </div><div class="line">     break; </div><div class="line">   &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-</blockquote>
 <p>最后也不要忘记把这个项目的url模式改为2。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;thinkphp在不支持pathinfo的nginx上的解决方法&quot;&gt;&lt;a href=&quot;#thinkphp在不支持pathinfo的nginx上的解决方法&quot; class=&quot;headerlink&quot; title=&quot;thinkphp在不支持pathinfo的nginx上的解决方法&quot;&gt;&lt;/a&gt;thinkphp在不支持pathinfo的nginx上的解决方法&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;最近在用thinkphp做一个项目，基本完成后部署到nginx服务器上才发觉nginx是不支持pathinfo的，网上搜索了别人的解决方法，有两种思路：&lt;/p&gt;
-&lt;p&gt; 1.修改thinkphp让他可以在nginx上运行&lt;/p&gt;
-&lt;p&gt; 2.修改nginx让它支持pathinfo&lt;br&gt;网上说nginx开启pathinfo是有一定风险的，能不用pathinfo最好不用，所以还是折腾thinkphp吧，个人觉得这种方法相对第2种方法来得简单&lt;/p&gt;
+      &lt;h2 id=&quot;thinkphp在不支持pathinfo的nginx上的解决方法&quot;&gt;&lt;a href=&quot;#thinkphp在不支持pathinfo的nginx上的解决方法&quot; class=&quot;headerlink&quot; title=&quot;thinkphp在不支持pathinfo的nginx上的解决方法&quot;&gt;&lt;/a&gt;thinkphp在不支持pathinfo的nginx上的解决方法&lt;/h2&gt;&lt;p&gt;最近在用thinkphp做一个项目，基本完成后部署到nginx服务器上才发觉nginx是不支持pathinfo的，网上搜索了别人的解决方法，有两种思路：&lt;/p&gt;
+&lt;p&gt;  1.修改thinkphp让他可以在nginx上运行&lt;/p&gt;
+&lt;p&gt;  2.修改nginx让它支持pathinfo&lt;br&gt;网上说nginx开启pathinfo是有一定风险的，能不用pathinfo最好不用，所以还是折腾thinkphp吧，个人觉得这种方法相对第2种方法来得简单&lt;/p&gt;
 &lt;p&gt;修改nginx的rewrite　　&lt;/p&gt;
     
     </summary>
@@ -1154,9 +1151,9 @@
       <category term="Essay" scheme="http://notes.huhao.me/categories/Essay/"/>
     
     
-      <category term="Git" scheme="http://notes.huhao.me/tags/Git/"/>
-    
       <category term="Essay" scheme="http://notes.huhao.me/tags/Essay/"/>
+    
+      <category term="Git" scheme="http://notes.huhao.me/tags/Git/"/>
     
   </entry>
   
@@ -1189,6 +1186,36 @@
       &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;笔记本装了一个centos，想要让别人也可以登录访问，用自己的账号确实不太好，于是准备新建一个用户给他。&lt;/p&gt;
 &lt;h2 id=&quot;1-创建新用户&quot;&gt;&lt;a href=&quot;#1-创建新用户&quot; class=&quot;headerlink&quot; title=&quot;1.创建新用户&quot;&gt;&lt;/a&gt;1.创建新用户&lt;/h2&gt;&lt;p&gt;创建一个用户名为：git&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;adduser git&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;为这个用户初始化密码，linux会判断密码复杂度，不过可以强行忽略：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;passwd git&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;更改用户 git 的密码 。&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;新的 密码：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;无效的密码： 密码未通过字典检查 - 过于简单化/系统化&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;重新输入新的 密码：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;passwd：所有的身份验证令牌已经成功更新。&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Liunx" scheme="http://notes.huhao.me/categories/Liunx/"/>
+    
+    
+      <category term="Liunx" scheme="http://notes.huhao.me/tags/Liunx/"/>
+    
+      <category term="CentOS" scheme="http://notes.huhao.me/tags/CentOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux系统之间互传文件</title>
+    <link href="http://notes.huhao.me/2017/linux%E7%B3%BB%E7%BB%9F%E4%B9%8B%E9%97%B4%E4%BA%92%E4%BC%A0%E6%96%87%E4%BB%B6.html"/>
+    <id>http://notes.huhao.me/2017/linux系统之间互传文件.html</id>
+    <published>2017-03-15T02:58:00.000Z</published>
+    <updated>2017-03-20T15:43:05.053Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-文件复制：本机-gt-远程服务器"><a href="#1-文件复制：本机-gt-远程服务器" class="headerlink" title="1.文件复制：本机-&gt;远程服务器"></a>1.文件复制：本机-&gt;远程服务器</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp /home/root/test1.txt shaoxiaohu@172.16.18.1:/home/test2.txt</div></pre></td></tr></table></figure>
+<p>其中，test1为源文件，test2为目标文件，root@172.16.18.1为远程服务器的用户名和ip地址。</p>
+<h2 id="2-文件复制：远程服务器-gt-本机"><a href="#2-文件复制：远程服务器-gt-本机" class="headerlink" title="2.文件复制：远程服务器-&gt;本机"></a>2.文件复制：远程服务器-&gt;本机</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp root@172.16.18.2:/home/test2.txt /home/root/test1.txt</div></pre></td></tr></table></figure>
+<p>其中，root@172.16.18.2为远程服务器的用户名和ip地址， test2为源文件，test1为目标路径</p>
+<h2 id="3-文件夹复制"><a href="#3-文件夹复制" class="headerlink" title="3.文件夹复制"></a>3.文件夹复制</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在scp命令后加“-r”参数即可。</div></pre></td></tr></table></figure>
+<h2 id="4-端口号"><a href="#4-端口号" class="headerlink" title="4. 端口号"></a>4. 端口号</h2><p>如果端口号有更改，需在scp 后输入：-P 端口号 （注意是大写，ssh的命令中 -p是小写）。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-文件复制：本机-gt-远程服务器&quot;&gt;&lt;a href=&quot;#1-文件复制：本机-gt-远程服务器&quot; class=&quot;headerlink&quot; title=&quot;1.文件复制：本机-&amp;gt;远程服务器&quot;&gt;&lt;/a&gt;1.文件复制：本机-&amp;gt;远程服务器&lt;/h2&gt; &lt;figur
     
     </summary>
     
@@ -1247,37 +1274,7 @@
       <category term="Liunx" scheme="http://notes.huhao.me/categories/Liunx/"/>
     
     
-      <category term="Liunx" scheme="http://notes.huhao.me/tags/Liunx/"/>
-    
       <category term="Git" scheme="http://notes.huhao.me/tags/Git/"/>
-    
-      <category term="CentOS" scheme="http://notes.huhao.me/tags/CentOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux系统之间互传文件</title>
-    <link href="http://notes.huhao.me/2017/linux%E7%B3%BB%E7%BB%9F%E4%B9%8B%E9%97%B4%E4%BA%92%E4%BC%A0%E6%96%87%E4%BB%B6.html"/>
-    <id>http://notes.huhao.me/2017/linux系统之间互传文件.html</id>
-    <published>2017-03-15T02:58:00.000Z</published>
-    <updated>2017-03-20T15:43:05.053Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-文件复制：本机-gt-远程服务器"><a href="#1-文件复制：本机-gt-远程服务器" class="headerlink" title="1.文件复制：本机-&gt;远程服务器"></a>1.文件复制：本机-&gt;远程服务器</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp /home/root/test1.txt shaoxiaohu@172.16.18.1:/home/test2.txt</div></pre></td></tr></table></figure>
-<p>其中，test1为源文件，test2为目标文件，root@172.16.18.1为远程服务器的用户名和ip地址。</p>
-<h2 id="2-文件复制：远程服务器-gt-本机"><a href="#2-文件复制：远程服务器-gt-本机" class="headerlink" title="2.文件复制：远程服务器-&gt;本机"></a>2.文件复制：远程服务器-&gt;本机</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">scp root@172.16.18.2:/home/test2.txt /home/root/test1.txt</div></pre></td></tr></table></figure>
-<p>其中，root@172.16.18.2为远程服务器的用户名和ip地址， test2为源文件，test1为目标路径</p>
-<h2 id="3-文件夹复制"><a href="#3-文件夹复制" class="headerlink" title="3.文件夹复制"></a>3.文件夹复制</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在scp命令后加“-r”参数即可。</div></pre></td></tr></table></figure>
-<h2 id="4-端口号"><a href="#4-端口号" class="headerlink" title="4. 端口号"></a>4. 端口号</h2><p>如果端口号有更改，需在scp 后输入：-P 端口号 （注意是大写，ssh的命令中 -p是小写）。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;1-文件复制：本机-gt-远程服务器&quot;&gt;&lt;a href=&quot;#1-文件复制：本机-gt-远程服务器&quot; class=&quot;headerlink&quot; title=&quot;1.文件复制：本机-&amp;gt;远程服务器&quot;&gt;&lt;/a&gt;1.文件复制：本机-&amp;gt;远程服务器&lt;/h2&gt; &lt;figur
-    
-    </summary>
-    
-      <category term="Liunx" scheme="http://notes.huhao.me/categories/Liunx/"/>
-    
     
       <category term="Liunx" scheme="http://notes.huhao.me/tags/Liunx/"/>
     

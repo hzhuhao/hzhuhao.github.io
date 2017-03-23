@@ -89,25 +89,22 @@
 
 
 
-<meta name="description" content="thinkphp在不支持pathinfo的nginx上的解决方法
-最近在用thinkphp做一个项目，基本完成后部署到nginx服务器上才发觉nginx是不支持pathinfo的，网上搜索了别人的解决方法，有两种思路：
- 1.修改thinkphp让他可以在nginx上运行
- 2.修改nginx让它支持pathinfo网上说nginx开启pathinfo是有一定风险的，能不用pathinfo最好不用">
+<meta name="description" content="thinkphp在不支持pathinfo的nginx上的解决方法最近在用thinkphp做一个项目，基本完成后部署到nginx服务器上才发觉nginx是不支持pathinfo的，网上搜索了别人的解决方法，有两种思路：
+  1.修改thinkphp让他可以在nginx上运行
+  2.修改nginx让它支持pathinfo网上说nginx开启pathinfo是有一定风险的，能不用pathinfo最好不">
 <meta property="og:type" content="article">
 <meta property="og:title" content="thinkphp在不支持pathinfo的nginx上的解决方法">
 <meta property="og:url" content="http://notes.huhao.me/2017/thinkphp在不支持pathinfo的nginx上的解决方法.html">
 <meta property="og:site_name" content="HuHao's Notes">
-<meta property="og:description" content="thinkphp在不支持pathinfo的nginx上的解决方法
-最近在用thinkphp做一个项目，基本完成后部署到nginx服务器上才发觉nginx是不支持pathinfo的，网上搜索了别人的解决方法，有两种思路：
- 1.修改thinkphp让他可以在nginx上运行
- 2.修改nginx让它支持pathinfo网上说nginx开启pathinfo是有一定风险的，能不用pathinfo最好不用">
-<meta property="og:updated_time" content="2017-03-23T05:57:37.995Z">
+<meta property="og:description" content="thinkphp在不支持pathinfo的nginx上的解决方法最近在用thinkphp做一个项目，基本完成后部署到nginx服务器上才发觉nginx是不支持pathinfo的，网上搜索了别人的解决方法，有两种思路：
+  1.修改thinkphp让他可以在nginx上运行
+  2.修改nginx让它支持pathinfo网上说nginx开启pathinfo是有一定风险的，能不用pathinfo最好不">
+<meta property="og:updated_time" content="2017-03-23T06:00:39.535Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="thinkphp在不支持pathinfo的nginx上的解决方法">
-<meta name="twitter:description" content="thinkphp在不支持pathinfo的nginx上的解决方法
-最近在用thinkphp做一个项目，基本完成后部署到nginx服务器上才发觉nginx是不支持pathinfo的，网上搜索了别人的解决方法，有两种思路：
- 1.修改thinkphp让他可以在nginx上运行
- 2.修改nginx让它支持pathinfo网上说nginx开启pathinfo是有一定风险的，能不用pathinfo最好不用">
+<meta name="twitter:description" content="thinkphp在不支持pathinfo的nginx上的解决方法最近在用thinkphp做一个项目，基本完成后部署到nginx服务器上才发觉nginx是不支持pathinfo的，网上搜索了别人的解决方法，有两种思路：
+  1.修改thinkphp让他可以在nginx上运行
+  2.修改nginx让它支持pathinfo网上说nginx开启pathinfo是有一定风险的，能不用pathinfo最好不">
 
 
 
@@ -423,15 +420,13 @@
       
 
       
-        <h2 id="thinkphp在不支持pathinfo的nginx上的解决方法"><a href="#thinkphp在不支持pathinfo的nginx上的解决方法" class="headerlink" title="thinkphp在不支持pathinfo的nginx上的解决方法"></a>thinkphp在不支持pathinfo的nginx上的解决方法</h2><blockquote>
-<p>最近在用thinkphp做一个项目，基本完成后部署到nginx服务器上才发觉nginx是不支持pathinfo的，网上搜索了别人的解决方法，有两种思路：</p>
-<p> 1.修改thinkphp让他可以在nginx上运行</p>
-<p> 2.修改nginx让它支持pathinfo<br>网上说nginx开启pathinfo是有一定风险的，能不用pathinfo最好不用，所以还是折腾thinkphp吧，个人觉得这种方法相对第2种方法来得简单</p>
+        <h2 id="thinkphp在不支持pathinfo的nginx上的解决方法"><a href="#thinkphp在不支持pathinfo的nginx上的解决方法" class="headerlink" title="thinkphp在不支持pathinfo的nginx上的解决方法"></a>thinkphp在不支持pathinfo的nginx上的解决方法</h2><p>最近在用thinkphp做一个项目，基本完成后部署到nginx服务器上才发觉nginx是不支持pathinfo的，网上搜索了别人的解决方法，有两种思路：</p>
+<p>  1.修改thinkphp让他可以在nginx上运行</p>
+<p>  2.修改nginx让它支持pathinfo<br>网上说nginx开启pathinfo是有一定风险的，能不用pathinfo最好不用，所以还是折腾thinkphp吧，个人觉得这种方法相对第2种方法来得简单</p>
 <p>修改nginx的rewrite　　</p>
-<a id="more"></a>
+ <a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">location / &#123; </div><div class="line">  if (!-e $request_filename) &#123; </div><div class="line">    rewrite ^(.*)$ /index.php?s=$1 last; </div><div class="line">    break; </div><div class="line">  &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>如果是多个项目，布署项目时要把项目布署到目录里，如后台的项目放到Admin目录里，那么在nginx的rewrite里再写一条<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">location /Admin/ &#123; </div><div class="line">   if (!-e $request_filename) &#123; </div><div class="line">     rewrite ^/Admin/(.*)$ /Admin/index.php?s=$1 last; </div><div class="line">     break; </div><div class="line">   &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-</blockquote>
 <p>最后也不要忘记把这个项目的url模式改为2。</p>
 
       
