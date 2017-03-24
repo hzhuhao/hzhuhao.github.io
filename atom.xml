@@ -46,9 +46,9 @@
       <category term="PHP" scheme="http://notes.huhao.me/categories/PHP/"/>
     
     
-      <category term="Nginx" scheme="http://notes.huhao.me/tags/Nginx/"/>
-    
       <category term="PHP" scheme="http://notes.huhao.me/tags/PHP/"/>
+    
+      <category term="Nginx" scheme="http://notes.huhao.me/tags/Nginx/"/>
     
   </entry>
   
@@ -57,7 +57,7 @@
     <link href="http://notes.huhao.me/2017/JQuery%E6%97%A5%E5%8E%86%E6%8F%92%E4%BB%B6My97DatePicker%E6%97%A5%E6%9C%9F%E8%8C%83%E5%9B%B4%E9%99%90%E5%88%B6.html"/>
     <id>http://notes.huhao.me/2017/JQuery日历插件My97DatePicker日期范围限制.html</id>
     <published>2017-03-22T04:00:00.000Z</published>
-    <updated>2017-03-22T07:53:23.624Z</updated>
+    <updated>2017-03-24T02:56:23.547Z</updated>
     
     <content type="html"><![CDATA[<h2 id="My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。"><a href="#My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。" class="headerlink" title="My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。"></a>My97DatePicker是一个非常优秀的日历插件，不仅支持多种调用模式，还支持日期范围限制。</h2><p>常规的调用比较简单，如下所示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input class=&quot;Wdate&quot; id=&quot;d1&quot; onclick=&quot;WdatePicker()&quot; /&gt;</div></pre></td></tr></table></figure></p>
 <h3 id="下面重点说明日期范围限制："><a href="#下面重点说明日期范围限制：" class="headerlink" title="下面重点说明日期范围限制："></a>下面重点说明日期范围限制：</h3><h4 id="1）静态限制"><a href="#1）静态限制" class="headerlink" title="1）静态限制"></a>1）静态限制</h4><p>你可以给通过配置minDate(最小日期),maxDate(最大日期)为静态日期值,来限定日期的范围</p>
